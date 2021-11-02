@@ -45,93 +45,103 @@ namespace Liga_Cordobesa.App.Presentacion
             // lblDni
             // 
             this.lblDni.AutoSize = true;
-            this.lblDni.Location = new System.Drawing.Point(133, 41);
+            this.lblDni.Location = new System.Drawing.Point(89, 27);
+            this.lblDni.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDni.Name = "lblDni";
-            this.lblDni.Size = new System.Drawing.Size(33, 20);
+            this.lblDni.Size = new System.Drawing.Size(23, 13);
             this.lblDni.TabIndex = 0;
             this.lblDni.Text = "Dni";
             // 
             // txtDni
             // 
-            this.txtDni.Location = new System.Drawing.Point(190, 38);
+            this.txtDni.Location = new System.Drawing.Point(127, 25);
+            this.txtDni.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtDni.Name = "txtDni";
-            this.txtDni.Size = new System.Drawing.Size(277, 26);
+            this.txtDni.Size = new System.Drawing.Size(186, 20);
             this.txtDni.TabIndex = 1;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(190, 89);
+            this.txtNombre.Location = new System.Drawing.Point(127, 58);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(277, 26);
-            this.txtNombre.TabIndex = 3;
+            this.txtNombre.Size = new System.Drawing.Size(186, 20);
+            this.txtNombre.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(101, 95);
+            this.label1.Location = new System.Drawing.Point(67, 62);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 20);
+            this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Nombre";
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(190, 140);
+            this.txtApellido.Location = new System.Drawing.Point(127, 91);
+            this.txtApellido.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(277, 26);
-            this.txtApellido.TabIndex = 5;
+            this.txtApellido.Size = new System.Drawing.Size(186, 20);
+            this.txtApellido.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(101, 146);
+            this.label2.Location = new System.Drawing.Point(67, 95);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 20);
+            this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Apellido";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 196);
+            this.label3.Location = new System.Drawing.Point(5, 127);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(159, 20);
+            this.label3.Size = new System.Drawing.Size(108, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Fecha de Nacimiento";
             // 
             // dtpFechaPersona
             // 
             this.dtpFechaPersona.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaPersona.Location = new System.Drawing.Point(190, 190);
+            this.dtpFechaPersona.Location = new System.Drawing.Point(127, 123);
+            this.dtpFechaPersona.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtpFechaPersona.Name = "dtpFechaPersona";
-            this.dtpFechaPersona.Size = new System.Drawing.Size(277, 26);
-            this.dtpFechaPersona.TabIndex = 7;
+            this.dtpFechaPersona.Size = new System.Drawing.Size(186, 20);
+            this.dtpFechaPersona.TabIndex = 4;
             // 
             // btnAceptarPersona
             // 
-            this.btnAceptarPersona.Location = new System.Drawing.Point(137, 243);
+            this.btnAceptarPersona.Location = new System.Drawing.Point(91, 158);
+            this.btnAceptarPersona.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAceptarPersona.Name = "btnAceptarPersona";
-            this.btnAceptarPersona.Size = new System.Drawing.Size(97, 30);
-            this.btnAceptarPersona.TabIndex = 8;
+            this.btnAceptarPersona.Size = new System.Drawing.Size(65, 19);
+            this.btnAceptarPersona.TabIndex = 5;
             this.btnAceptarPersona.Text = "Aceptar";
             this.btnAceptarPersona.UseVisualStyleBackColor = true;
             this.btnAceptarPersona.Click += new System.EventHandler(this.btnAceptarPersona_Click);
             // 
             // btnCancelarPersona
             // 
-            this.btnCancelarPersona.Location = new System.Drawing.Point(309, 243);
+            this.btnCancelarPersona.Location = new System.Drawing.Point(206, 158);
+            this.btnCancelarPersona.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCancelarPersona.Name = "btnCancelarPersona";
-            this.btnCancelarPersona.Size = new System.Drawing.Size(97, 30);
-            this.btnCancelarPersona.TabIndex = 9;
+            this.btnCancelarPersona.Size = new System.Drawing.Size(65, 19);
+            this.btnCancelarPersona.TabIndex = 6;
             this.btnCancelarPersona.Text = "Cancelar";
             this.btnCancelarPersona.UseVisualStyleBackColor = true;
             this.btnCancelarPersona.Click += new System.EventHandler(this.btnCancelarPersona_Click);
             // 
             // FormInsertarPersona
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(578, 297);
+            this.ClientSize = new System.Drawing.Size(385, 193);
             this.Controls.Add(this.btnCancelarPersona);
             this.Controls.Add(this.btnAceptarPersona);
             this.Controls.Add(this.dtpFechaPersona);
@@ -143,6 +153,7 @@ namespace Liga_Cordobesa.App.Presentacion
             this.Controls.Add(this.txtDni);
             this.Controls.Add(this.lblDni);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormInsertarPersona";
             this.Text = "Insertar Nueva Persona";
             this.Load += new System.EventHandler(this.FormInsertarPersona_Load);

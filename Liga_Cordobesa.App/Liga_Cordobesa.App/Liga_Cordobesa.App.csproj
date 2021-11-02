@@ -46,8 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Acceso a datos\EquipoDao.cs" />
-    <Compile Include="Acceso a datos\IDao.cs" />
+    <Compile Include="Acceso a datos\Implementaciones\EquipoDao.cs" />
+    <Compile Include="Acceso a datos\Interfaces\IDao.cs" />
     <Compile Include="Dominio\Equipo.cs" />
     <Compile Include="Dominio\Jugador.cs" />
     <Compile Include="Dominio\Persona.cs" />
@@ -72,11 +72,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Servicios\AbstractServiceFactory.cs" />
-    <Compile Include="Servicios\EquipoService.cs" />
-    <Compile Include="Servicios\IService.cs" />
-    <Compile Include="Servicios\Parametro.cs" />
-    <Compile Include="Servicios\ServiceFactoryImp.cs" />
+    <Compile Include="Servicios\Implementaciones\AbstractServiceFactory.cs" />
+    <Compile Include="Servicios\Implementaciones\EquipoService.cs" />
+    <Compile Include="Servicios\Interfaces\IService.cs" />
+    <Compile Include="Servicios\Implementaciones\Parametro.cs" />
+    <Compile Include="Servicios\Implementaciones\ServiceFactoryImp.cs" />
     <EmbeddedResource Include="Presentacion\FormInsertarPersona.resx">
       <DependentUpon>FormInsertarPersona.cs</DependentUpon>
     </EmbeddedResource>
