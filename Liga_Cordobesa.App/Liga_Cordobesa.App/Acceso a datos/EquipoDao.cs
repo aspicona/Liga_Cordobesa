@@ -16,7 +16,7 @@ namespace Liga_Cordobesa.App.Acceso_a_datos
         {
             SqlConnection cnn;
             cnn = new SqlConnection();
-            cnn.ConnectionString = @"Data Source=NTBLENO60213\SQLEXPRESS;Initial Catalog=LigaCordobesa;Integrated Security=True";
+            cnn.ConnectionString = @"Data Source=DESKTOP-NDS3RE4;Initial Catalog=LigaCordobesa;Integrated Security=True";
 
             SqlTransaction transaccion = null;
 
@@ -31,11 +31,15 @@ namespace Liga_Cordobesa.App.Acceso_a_datos
                 cmdEquipo.Parameters.AddWithValue("@nombre_equipo", oEquipo.NombreEquipo.ToString());
                 cmdEquipo.Parameters.AddWithValue("@dt", oEquipo.Dt);
 
+                SqlParameter param = new SqlParameter();
+                param.ParameterName = "@equipo_nro";
+                param.SqlDbType = SqlDbType.Int;
+                param.Direction = ParameterDirection.Output;
 
+                cmdEquipo.Parameters.Add(param);
                 cmdEquipo.ExecuteNonQuery();
 
-                int nroEquipo = oEquipo.IdEquipo;
-                
+                int nroEquipo = (int)param.Value;
 
                 foreach (Jugador jug in oEquipo.Jugadores)
                 {
@@ -45,7 +49,7 @@ namespace Liga_Cordobesa.App.Acceso_a_datos
                     cmd.Parameters.AddWithValue("@id_persona", jug.Persona.Id_Persona);
                     cmd.Parameters.AddWithValue("@camiseta", jug.Camiseta);
                     cmd.Parameters.AddWithValue("@id_posicion", jug.Posicion.Id_posicion);
-                    cmd.Parameters.AddWithValue("@id_equipo", oEquipo.IdEquipo);                   
+                    cmd.Parameters.AddWithValue("@id_equipo", nroEquipo);                   
                     cmd.ExecuteNonQuery();
                 }
 
@@ -74,7 +78,7 @@ namespace Liga_Cordobesa.App.Acceso_a_datos
         {
             SqlConnection cnn;
             cnn = new SqlConnection();
-            cnn.ConnectionString = @"Data Source=NTBLENO60213\SQLEXPRESS;Initial Catalog=LigaCordobesa;Integrated Security=True";
+            cnn.ConnectionString = @"Data Source=DESKTOP-NDS3RE4;Initial Catalog=LigaCordobesa;Integrated Security=True";
             List<Persona> lst = new List<Persona>();
             cnn.Open();
             SqlCommand cmd2 = new SqlCommand("SP_CONSULTAR_PERSONA", cnn);
@@ -101,9 +105,8 @@ namespace Liga_Cordobesa.App.Acceso_a_datos
         }
 
         public int TraerNroEquipo()
-        {
-            
-                SqlConnection cnn = new SqlConnection(@"Data Source=NTBLENO60213\SQLEXPRESS;Initial Catalog=LigaCordobesa;Integrated Security=True");
+        {            
+                SqlConnection cnn = new SqlConnection(@"Data Source=DESKTOP-NDS3RE4;Initial Catalog=LigaCordobesa;Integrated Security=True");
                 cnn.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = cnn;
@@ -119,9 +122,7 @@ namespace Liga_Cordobesa.App.Acceso_a_datos
 
                 cmd.ExecuteNonQuery();
                 cnn.Close();
-                return (int)param.Value;
-
-            
+                return (int)param.Value;            
 
             
 
@@ -131,7 +132,7 @@ namespace Liga_Cordobesa.App.Acceso_a_datos
         {
             SqlConnection cnn;
             cnn = new SqlConnection();
-            cnn.ConnectionString = @"Data Source=NTBLENO60213\SQLEXPRESS;Initial Catalog=LigaCordobesa;Integrated Security=True";
+            cnn.ConnectionString = @"Data Source=DESKTOP-NDS3RE4;Initial Catalog=LigaCordobesa;Integrated Security=True";
             List<Persona> lst = new List<Persona>();
             cnn.Open();
             SqlCommand cmd2 = new SqlCommand("SP_CONSULTAR_PERSONA", cnn);
@@ -161,7 +162,7 @@ namespace Liga_Cordobesa.App.Acceso_a_datos
         {
             SqlConnection cnn;
             cnn = new SqlConnection();
-            cnn.ConnectionString = @"Data Source=NTBLENO60213\SQLEXPRESS;Initial Catalog=LigaCordobesa;Integrated Security=True";
+            cnn.ConnectionString = @"Data Source=DESKTOP-NDS3RE4;Initial Catalog=LigaCordobesa;Integrated Security=True";
             List<Posicion> lstPosicion = new List<Posicion>();
             cnn.Open();
             SqlCommand cmd2 = new SqlCommand("SP_CONSULTAR_POSICION", cnn);
@@ -189,7 +190,7 @@ namespace Liga_Cordobesa.App.Acceso_a_datos
         {
 
             SqlTransaction transaccion = null;
-            SqlConnection cnn = new SqlConnection(@"Data Source=NTBLENO60213\SQLEXPRESS;Initial Catalog=LigaCordobesa;Integrated Security=True");
+            SqlConnection cnn = new SqlConnection(@"Data Source=DESKTOP-NDS3RE4;Initial Catalog=LigaCordobesa;Integrated Security=True");
 
             bool flag = true;
             try
