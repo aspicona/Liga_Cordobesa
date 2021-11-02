@@ -16,10 +16,7 @@ namespace Liga_Cordobesa.App.Acceso_a_datos
         List<Posicion> TraerPosicion();
         bool Guardar(Equipo oEquipo);
         int TraerNroEquipo();
-
         Equipo EquipoPorId(int id);
         bool Delete(int nro);
-
-
     }
 }

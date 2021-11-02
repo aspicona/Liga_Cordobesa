@@ -39,7 +39,7 @@ namespace Liga_Cordobesa.App.Servicios
         public bool Insertar(Persona oPersona)
         {
             SqlTransaction transaccion = null;
-            SqlConnection cnn = new SqlConnection(@"Data Source=NTBLENO60213\SQLEXPRESS;Initial Catalog=LigaCordobesa;Integrated Security=True");
+            SqlConnection cnn = new SqlConnection(@"Data Source=DESKTOP-NDS3RE4;Initial Catalog=LigaCordobesa;Integrated Security=True");
 
             bool flag = true;
             try
