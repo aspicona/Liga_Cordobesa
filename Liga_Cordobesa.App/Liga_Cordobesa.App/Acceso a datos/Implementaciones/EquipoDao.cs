@@ -1,5 +1,6 @@
 ﻿using Liga_Cordobesa.App.Dominio;
 using Liga_Cordobesa.App.Servicios;
+using Liga_Cordobesa.App.Servicios.Implementaciones;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -23,8 +24,8 @@ namespace Liga_Cordobesa.App.Acceso_a_datos
             bool flag = true;
             try
             {
-                cnn.Open();
-                transaccion = cnn.BeginTransaction();
+               cnn.Open();
+               transaccion = cnn.BeginTransaction();
 
                 SqlCommand cmdEquipo = new SqlCommand("SP_INSERTAR_EQUIPO", cnn, transaccion);
                 cmdEquipo.CommandType = CommandType.StoredProcedure;
@@ -69,26 +70,14 @@ namespace Liga_Cordobesa.App.Acceso_a_datos
             }
 
             return flag;
-
-
-
         }
 
         public List<Persona> TraerPersona()
         {
-            SqlConnection cnn;
-            cnn = new SqlConnection();
-            cnn.ConnectionString = @"Data Source=DESKTOP-NDS3RE4;Initial Catalog=LigaCordobesa;Integrated Security=True";
+            HelperDao helper = HelperDao.ObtenerInstancia();
+            DataTable table = helper.ConsultaSQL("SP_CONSULTAR_PERSONA");
+
             List<Persona> lst = new List<Persona>();
-            cnn.Open();
-            SqlCommand cmd2 = new SqlCommand("SP_CONSULTAR_PERSONA", cnn);
-
-            cmd2.CommandType = CommandType.StoredProcedure;
-
-            DataTable table = new DataTable();
-            table.Load(cmd2.ExecuteReader());
-
-            cnn.Close();
 
             foreach (DataRow row in table.Rows)
             {
@@ -100,49 +89,21 @@ namespace Liga_Cordobesa.App.Acceso_a_datos
                 oPersona.FechaNac = Convert.ToDateTime(row["fecha_nac"]);
                 lst.Add(oPersona);
             }
-
             return lst;
         }
 
         public int TraerNroEquipo()
-        {            
-                SqlConnection cnn = new SqlConnection(@"Data Source=DESKTOP-NDS3RE4;Initial Catalog=LigaCordobesa;Integrated Security=True");
-                cnn.Open();
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = cnn;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "SP_PROXIMO_ID_EQUIPO";
-
-                SqlParameter param = new SqlParameter();
-                param.ParameterName = "@next";
-                param.SqlDbType = SqlDbType.Int;
-                param.Direction = ParameterDirection.Output;
-
-                cmd.Parameters.Add(param);
-
-                cmd.ExecuteNonQuery();
-                cnn.Close();
-                return (int)param.Value;            
-
-            
-
+        {
+            HelperDao helper = HelperDao.ObtenerInstancia();
+            return helper.EjecutarSQLConOutput("SP_PROXIMO_ID_EQUIPO", "@next");
         }
 
         public List<Persona> TraerPersonas()
         {
-            SqlConnection cnn;
-            cnn = new SqlConnection();
-            cnn.ConnectionString = @"Data Source=DESKTOP-NDS3RE4;Initial Catalog=LigaCordobesa;Integrated Security=True";
+            HelperDao helper = HelperDao.ObtenerInstancia();
+            DataTable table = helper.ConsultaSQL("SP_CONSULTAR_PERSONA");
+
             List<Persona> lst = new List<Persona>();
-            cnn.Open();
-            SqlCommand cmd2 = new SqlCommand("SP_CONSULTAR_PERSONA", cnn);
-
-            cmd2.CommandType = CommandType.StoredProcedure;
-
-            DataTable table = new DataTable();
-            table.Load(cmd2.ExecuteReader());
-
-            cnn.Close();
 
             foreach (DataRow row in table.Rows)
             {
@@ -160,19 +121,10 @@ namespace Liga_Cordobesa.App.Acceso_a_datos
 
         public List<Posicion> TraerPosicion()
         {
-            SqlConnection cnn;
-            cnn = new SqlConnection();
-            cnn.ConnectionString = @"Data Source=DESKTOP-NDS3RE4;Initial Catalog=LigaCordobesa;Integrated Security=True";
+            HelperDao helper = HelperDao.ObtenerInstancia();
+            DataTable table = helper.ConsultaSQL("SP_CONSULTAR_POSICION");
+
             List<Posicion> lstPosicion = new List<Posicion>();
-            cnn.Open();
-            SqlCommand cmd2 = new SqlCommand("SP_CONSULTAR_POSICION", cnn);
-
-            cmd2.CommandType = CommandType.StoredProcedure;
-
-            DataTable table = new DataTable();
-            table.Load(cmd2.ExecuteReader());
-
-            cnn.Close();
 
 
             foreach (DataRow row in table.Rows)

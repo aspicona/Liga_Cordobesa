@@ -29,7 +29,6 @@ namespace Liga_Cordobesa.App.Presentacion
             servicio = new ServiceFactoryImp().CrearService();
             this.modo = modo;
             dao = new EquipoDao();
-
         }
 
         private void Form_Alta_Equipo_Load(object sender, EventArgs e)
@@ -37,6 +36,11 @@ namespace Liga_Cordobesa.App.Presentacion
             CargarComboPersonas();
             CargarComboPosicion();
             lblNroEquipo.Text = "Equipo Nro: " + dao.TraerNroEquipo();
+        }
+
+        private void FormInsertarPersona_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Form_Alta_Equipo_Load(sender, e);
         }
 
         private void CargarComboPosicion()
@@ -73,7 +77,6 @@ namespace Liga_Cordobesa.App.Presentacion
             {
                 oEquipo.QuitarJugador(dgvEquipo.CurrentRow.Index);
                 dgvEquipo.Rows.Remove(dgvEquipo.CurrentRow);
-
             }
         }
 

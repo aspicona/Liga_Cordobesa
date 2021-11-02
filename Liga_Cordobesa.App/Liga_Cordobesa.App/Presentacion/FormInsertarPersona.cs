@@ -68,8 +68,6 @@ namespace Liga_Cordobesa.App.Presentacion
                 {
                     MessageBox.Show("Error al intentar ingresar Persona", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
-                
             }
         }
 
