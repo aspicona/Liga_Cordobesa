@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Liga_Cordobesa.App.Servicios
 {
-    class EquipoService : IService
+    public class EquipoService : IService
     {
         private IDao dao;
         Persona oPersona;

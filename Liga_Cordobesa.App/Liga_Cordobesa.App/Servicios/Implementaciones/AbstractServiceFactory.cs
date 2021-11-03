@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Liga_Cordobesa.App.Servicios
 {
-    abstract class AbstractServiceFactory
+    public abstract class AbstractServiceFactory
     {
         public abstract IService CrearService();
 

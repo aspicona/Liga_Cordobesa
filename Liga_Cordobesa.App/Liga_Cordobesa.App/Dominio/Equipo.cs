@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Liga_Cordobesa.App.Dominio
 {
-    class Equipo
+    public class Equipo
     {
         public int IdEquipo { get; set; }
         public String NombreEquipo { get; set; }

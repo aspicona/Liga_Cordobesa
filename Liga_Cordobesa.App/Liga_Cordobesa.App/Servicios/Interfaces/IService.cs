@@ -7,15 +7,14 @@ using System.Threading.Tasks;
 
 namespace Liga_Cordobesa.App.Servicios
 {
-    interface IService
+    public interface IService
     {
-       bool RegistrarBajaEquipo(int presupuesto);
+        bool RegistrarBajaEquipo(int presupuesto);
         List<Equipo> ConsultarEquipo(List<Parametro> criterios);
-        List<Persona> ConsultarPersonas();
-        bool GrabarEquipo(Equipo oEquipo);
-
-        bool Insertar(Persona oPersona);
-        int ObtenerProximoEquipoID();
+         List<Persona> ConsultarPersonas();
+         bool GrabarEquipo(Equipo oEquipo);
+         bool Insertar(Persona oPersona);
+         int ObtenerProximoEquipoID();
         Equipo ObtenerEquipoPorID(int nro);
 
     }
