@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Liga_Cordobesa.Backend.Acceso_a_datos
 {
-    class EquipoDao : IDao
+    class EquipoDao : IEquipoDao
     {
         public bool Guardar(Equipo oEquipo)
         {

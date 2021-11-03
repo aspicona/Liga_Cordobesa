@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Acceso a datos\Implementaciones\EquipoDao.cs" />
+    <Compile Include="Acceso a datos\Implementaciones\UsuarioDao.cs" />
     <Compile Include="Acceso a datos\Interfaces\IDao.cs" />
     <Compile Include="Dominio\Equipo.cs" />
     <Compile Include="Dominio\Jugador.cs" />

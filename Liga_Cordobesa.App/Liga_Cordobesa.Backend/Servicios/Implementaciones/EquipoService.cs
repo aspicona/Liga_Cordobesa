@@ -10,15 +10,14 @@ using System.Threading.Tasks;
 
 namespace Liga_Cordobesa.Backend.Servicios
 {
-    public class EquipoService : IService
+    public class EquipoService : IEquipoService
     {
-        private IDao dao;
+        private IEquipoDao dao;
         Persona oPersona;
 
         public EquipoService()
         {
-            dao = new EquipoDao();
-            
+            dao = new EquipoDao();            
         }
 
         public List<Equipo> ConsultarEquipo(List<Parametro> criterios)

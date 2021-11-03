@@ -90,6 +90,7 @@ namespace Liga_Cordobesa.App.Presentacion
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.btnIngresar);
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.ResumeLayout(false);
             this.PerformLayout();

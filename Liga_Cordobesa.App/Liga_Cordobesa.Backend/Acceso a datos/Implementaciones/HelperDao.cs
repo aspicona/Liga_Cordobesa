@@ -14,7 +14,7 @@ namespace Liga_Cordobesa.Backend.Servicios.Implementaciones
         private string connectionString;
         private HelperDao()
         {
-            connectionString = @"Data Source=DESKTOP-CLVH0O5\SQLEXPRESS;Initial Catalog=LigaCordobesa;Integrated Security=True";
+            connectionString = @"Data Source=DESKTOP-NDS3RE4;Initial Catalog=LigaCordobesa;Integrated Security=True";
         }
         public static HelperDao ObtenerInstancia()
         {

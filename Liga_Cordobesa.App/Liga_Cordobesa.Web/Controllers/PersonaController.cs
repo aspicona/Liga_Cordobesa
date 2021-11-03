@@ -13,11 +13,11 @@ namespace Liga_Cordobesa.Web.Controllers
     [ApiController]
     public class PersonaController : ControllerBase
     {
-        private IService service;
+        private IEquipoService service;
 
         public PersonaController()
         {
-            service = new ServiceFactoryImp().CrearService();
+            service = new ServiceFactoryImp().CrearEquipoService();
         }
 
         [HttpGet()]

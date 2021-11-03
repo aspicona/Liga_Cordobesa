@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Liga_Cordobesa.Backend.Servicios.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace Liga_Cordobesa.Backend.Servicios
 {
     public abstract class AbstractServiceFactory
     {
-        public abstract IService CrearService();
-
+        public abstract IEquipoService CrearEquipoService();
+        public abstract IUsuarioService CrearUsuarioService();
     }
 }
