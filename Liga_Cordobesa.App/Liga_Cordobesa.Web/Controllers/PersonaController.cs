@@ -4,8 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Liga_Cordobesa.App.Servicios;
-using Liga_Cordobesa.App.Servicios.Implementaciones;
+using Liga_Cordobesa.Backend.Servicios;
+using Liga_Cordobesa.Backend.Servicios.Implementaciones;
 
 namespace Liga_Cordobesa.Web.Controllers
 {

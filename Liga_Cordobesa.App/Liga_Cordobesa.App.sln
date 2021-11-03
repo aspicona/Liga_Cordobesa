@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Liga_Cordobesa.App", "Liga_Cordobesa.App\Liga_Cordobesa.App.csproj", "{8C9EF2D3-5586-4A35-953A-DAB3019C83DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Liga_Cordobesa.Web", "Liga_Cordobesa.Web\Liga_Cordobesa.Web.csproj", "{17474BC0-465C-49C5-B265-1613563A80B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Liga_Cordobesa.Web", "Liga_Cordobesa.Web\Liga_Cordobesa.Web.csproj", "{17474BC0-465C-49C5-B265-1613563A80B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Liga_Cordobesa.Backend", "Liga_Cordobesa.Backend\Liga_Cordobesa.Backend.csproj", "{1BEC6754-AC4F-4496-8DDA-0B76ADC72DB0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{17474BC0-465C-49C5-B265-1613563A80B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17474BC0-465C-49C5-B265-1613563A80B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17474BC0-465C-49C5-B265-1613563A80B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BEC6754-AC4F-4496-8DDA-0B76ADC72DB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BEC6754-AC4F-4496-8DDA-0B76ADC72DB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BEC6754-AC4F-4496-8DDA-0B76ADC72DB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BEC6754-AC4F-4496-8DDA-0B76ADC72DB0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

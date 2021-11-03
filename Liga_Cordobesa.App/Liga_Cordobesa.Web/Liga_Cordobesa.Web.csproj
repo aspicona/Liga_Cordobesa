@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Liga_Cordobesa.App\Liga_Cordobesa.App.csproj" />
+    <ProjectReference Include="..\Liga_Cordobesa.Backend\Liga_Cordobesa.Backend.csproj" />
   </ItemGroup>
 
 </Project>
