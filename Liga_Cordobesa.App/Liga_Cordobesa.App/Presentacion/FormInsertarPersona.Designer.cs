@@ -55,7 +55,7 @@ namespace Liga_Cordobesa.App.Presentacion
             // txtDni
             // 
             this.txtDni.Location = new System.Drawing.Point(127, 25);
-            this.txtDni.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDni.Margin = new System.Windows.Forms.Padding(2);
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(186, 20);
             this.txtDni.TabIndex = 1;
@@ -63,7 +63,7 @@ namespace Liga_Cordobesa.App.Presentacion
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(127, 58);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(186, 20);
             this.txtNombre.TabIndex = 2;
@@ -81,7 +81,7 @@ namespace Liga_Cordobesa.App.Presentacion
             // txtApellido
             // 
             this.txtApellido.Location = new System.Drawing.Point(127, 91);
-            this.txtApellido.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtApellido.Margin = new System.Windows.Forms.Padding(2);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(186, 20);
             this.txtApellido.TabIndex = 3;
@@ -110,7 +110,7 @@ namespace Liga_Cordobesa.App.Presentacion
             // 
             this.dtpFechaPersona.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFechaPersona.Location = new System.Drawing.Point(127, 123);
-            this.dtpFechaPersona.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpFechaPersona.Margin = new System.Windows.Forms.Padding(2);
             this.dtpFechaPersona.Name = "dtpFechaPersona";
             this.dtpFechaPersona.Size = new System.Drawing.Size(186, 20);
             this.dtpFechaPersona.TabIndex = 4;
@@ -118,7 +118,7 @@ namespace Liga_Cordobesa.App.Presentacion
             // btnAceptarPersona
             // 
             this.btnAceptarPersona.Location = new System.Drawing.Point(91, 158);
-            this.btnAceptarPersona.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAceptarPersona.Margin = new System.Windows.Forms.Padding(2);
             this.btnAceptarPersona.Name = "btnAceptarPersona";
             this.btnAceptarPersona.Size = new System.Drawing.Size(65, 19);
             this.btnAceptarPersona.TabIndex = 5;
@@ -129,7 +129,7 @@ namespace Liga_Cordobesa.App.Presentacion
             // btnCancelarPersona
             // 
             this.btnCancelarPersona.Location = new System.Drawing.Point(206, 158);
-            this.btnCancelarPersona.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancelarPersona.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelarPersona.Name = "btnCancelarPersona";
             this.btnCancelarPersona.Size = new System.Drawing.Size(65, 19);
             this.btnCancelarPersona.TabIndex = 6;
@@ -153,8 +153,9 @@ namespace Liga_Cordobesa.App.Presentacion
             this.Controls.Add(this.txtDni);
             this.Controls.Add(this.lblDni);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormInsertarPersona";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Insertar Nueva Persona";
             this.Load += new System.EventHandler(this.FormInsertarPersona_Load);
             this.ResumeLayout(false);

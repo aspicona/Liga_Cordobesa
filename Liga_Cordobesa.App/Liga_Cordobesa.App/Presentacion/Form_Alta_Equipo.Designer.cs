@@ -68,7 +68,7 @@ namespace Liga_Cordobesa.App.Presentacion
             // nudCamiseta
             // 
             this.nudCamiseta.Location = new System.Drawing.Point(145, 101);
-            this.nudCamiseta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nudCamiseta.Margin = new System.Windows.Forms.Padding(2);
             this.nudCamiseta.Name = "nudCamiseta";
             this.nudCamiseta.Size = new System.Drawing.Size(225, 20);
             this.nudCamiseta.TabIndex = 4;
@@ -86,7 +86,7 @@ namespace Liga_Cordobesa.App.Presentacion
             // btnAgregar
             // 
             this.btnAgregar.Location = new System.Drawing.Point(422, 164);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(2);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(101, 23);
             this.btnAgregar.TabIndex = 6;
@@ -99,7 +99,7 @@ namespace Liga_Cordobesa.App.Presentacion
             this.cboJugador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboJugador.FormattingEnabled = true;
             this.cboJugador.Location = new System.Drawing.Point(145, 38);
-            this.cboJugador.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboJugador.Margin = new System.Windows.Forms.Padding(2);
             this.cboJugador.Name = "cboJugador";
             this.cboJugador.Size = new System.Drawing.Size(227, 21);
             this.cboJugador.TabIndex = 2;
@@ -127,7 +127,7 @@ namespace Liga_Cordobesa.App.Presentacion
             // txtNombreEquipo
             // 
             this.txtNombreEquipo.Location = new System.Drawing.Point(145, 8);
-            this.txtNombreEquipo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNombreEquipo.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombreEquipo.Name = "txtNombreEquipo";
             this.txtNombreEquipo.Size = new System.Drawing.Size(227, 20);
             this.txtNombreEquipo.TabIndex = 1;
@@ -144,7 +144,7 @@ namespace Liga_Cordobesa.App.Presentacion
             this.camiseta,
             this.accion});
             this.dgvEquipo.Location = new System.Drawing.Point(62, 190);
-            this.dgvEquipo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvEquipo.Margin = new System.Windows.Forms.Padding(2);
             this.dgvEquipo.Name = "dgvEquipo";
             this.dgvEquipo.ReadOnly = true;
             this.dgvEquipo.RowHeadersWidth = 62;
@@ -197,7 +197,7 @@ namespace Liga_Cordobesa.App.Presentacion
             // btnCancelar
             // 
             this.btnCancelar.Location = new System.Drawing.Point(345, 353);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(101, 23);
             this.btnCancelar.TabIndex = 9;
@@ -207,7 +207,7 @@ namespace Liga_Cordobesa.App.Presentacion
             // btnAceptar
             // 
             this.btnAceptar.Location = new System.Drawing.Point(131, 353);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(2);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(101, 23);
             this.btnAceptar.TabIndex = 8;
@@ -218,7 +218,7 @@ namespace Liga_Cordobesa.App.Presentacion
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(394, 33);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(101, 23);
             this.button1.TabIndex = 10;
@@ -231,7 +231,7 @@ namespace Liga_Cordobesa.App.Presentacion
             this.cboPosicion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPosicion.FormattingEnabled = true;
             this.cboPosicion.Location = new System.Drawing.Point(145, 68);
-            this.cboPosicion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboPosicion.Margin = new System.Windows.Forms.Padding(2);
             this.cboPosicion.Name = "cboPosicion";
             this.cboPosicion.Size = new System.Drawing.Size(227, 21);
             this.cboPosicion.TabIndex = 3;
@@ -249,7 +249,7 @@ namespace Liga_Cordobesa.App.Presentacion
             // txtDT
             // 
             this.txtDT.Location = new System.Drawing.Point(145, 131);
-            this.txtDT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDT.Margin = new System.Windows.Forms.Padding(2);
             this.txtDT.Name = "txtDT";
             this.txtDT.Size = new System.Drawing.Size(227, 20);
             this.txtDT.TabIndex = 5;
@@ -286,8 +286,9 @@ namespace Liga_Cordobesa.App.Presentacion
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtNombreEquipo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form_Alta_Equipo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Alta Equipos";
             this.Load += new System.EventHandler(this.Form_Alta_Equipo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudCamiseta)).EndInit();
