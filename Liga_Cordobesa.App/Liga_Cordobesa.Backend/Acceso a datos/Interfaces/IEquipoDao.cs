@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Liga_Cordobesa.Backend.Acceso_a_datos
 {
-    interface IEquipoDao
+    public interface IEquipoDao
     {
         List<Persona> TraerPersonas();
         List<Equipo> ConsultarEquipo(List<Parametro> criterios);

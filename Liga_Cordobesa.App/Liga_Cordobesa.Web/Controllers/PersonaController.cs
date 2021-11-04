@@ -25,5 +25,6 @@ namespace Liga_Cordobesa.Web.Controllers
         {
             return Ok(service.ConsultarPersonas());
         }
+
     }
 }

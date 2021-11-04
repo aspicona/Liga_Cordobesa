@@ -16,7 +16,7 @@ namespace Liga_Cordobesa.Backend.Acceso_a_datos.Implementaciones
         {
             SqlConnection cnn;
             cnn = new SqlConnection();
-            cnn.ConnectionString = @"Data Source=DESKTOP-NDS3RE4;Initial Catalog=LigaCordobesa;Integrated Security=True";
+            cnn.ConnectionString = @"Data Source=DESKTOP-CLVH0O5\SQLEXPRESS;Initial Catalog=LigaCordobesa;Integrated Security=True";
 
             bool esUsuario = false;
 
@@ -26,8 +26,8 @@ namespace Liga_Cordobesa.Backend.Acceso_a_datos.Implementaciones
 
                 SqlCommand cmdEquipo = new SqlCommand("SP_VALIDAR_LOGIN", cnn);
                 cmdEquipo.CommandType = CommandType.StoredProcedure;
-                cmdEquipo.Parameters.AddWithValue("@nombreUsuario", "andres");
-                cmdEquipo.Parameters.AddWithValue("@contrasena", "12345");
+                cmdEquipo.Parameters.AddWithValue("@nombreUsuario", usuario);
+                cmdEquipo.Parameters.AddWithValue("@contrasena", contrasena);
 
                 SqlParameter param = new SqlParameter();
                 param.ParameterName = "@existe";

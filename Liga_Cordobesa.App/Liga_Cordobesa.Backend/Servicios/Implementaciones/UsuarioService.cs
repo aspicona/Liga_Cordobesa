@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Liga_Cordobesa.Backend.Servicios.Implementaciones
 {
-    class UsuarioService : IUsuarioService
+    public class UsuarioService : IUsuarioService
     {
         private IUsuarioDao dao;
 
