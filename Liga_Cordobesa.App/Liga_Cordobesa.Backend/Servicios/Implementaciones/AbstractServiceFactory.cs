@@ -11,5 +11,6 @@ namespace Liga_Cordobesa.Backend.Servicios
     {
         public abstract IEquipoService CrearEquipoService();
         public abstract IUsuarioService CrearUsuarioService();
+        public abstract IPersonaService CrearPersonaService();
     }
 }

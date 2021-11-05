@@ -12,5 +12,7 @@ namespace Liga_Cordobesa.Backend.Servicios
     {
         public override IEquipoService CrearEquipoService() => new EquipoService();
         public override IUsuarioService CrearUsuarioService() => new UsuarioService();
+        public override IPersonaService CrearPersonaService() => new PersonaServiceImpl();
+        
     }
 }

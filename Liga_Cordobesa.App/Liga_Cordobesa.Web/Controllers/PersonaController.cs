@@ -6,6 +6,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Liga_Cordobesa.Backend.Servicios;
 using Liga_Cordobesa.Backend.Servicios.Implementaciones;
+using Liga_Cordobesa.Backend.Dominio;
+using Liga_Cordobesa.Backend.Servicios.Interfaces;
 
 namespace Liga_Cordobesa.Web.Controllers
 {
@@ -13,17 +15,28 @@ namespace Liga_Cordobesa.Web.Controllers
     [ApiController]
     public class PersonaController : ControllerBase
     {
-        private IEquipoService service;
+        private IPersonaService service;
 
         public PersonaController()
         {
-            service = new ServiceFactoryImp().CrearEquipoService();
+            service = new ServiceFactoryImp().CrearPersonaService();
         }
 
         [HttpGet()]
         public IActionResult GetPersonas()
         {
             return Ok(service.ConsultarPersonas());
+        }
+
+        [HttpPost()]
+        public IActionResult SavePersona(Persona persona)
+        {
+            if(persona == null)
+            {
+                return BadRequest("Datos de la persona son requeridos!!");
+            }
+
+            return Ok(service.Insertar(persona));
         }
 
     }

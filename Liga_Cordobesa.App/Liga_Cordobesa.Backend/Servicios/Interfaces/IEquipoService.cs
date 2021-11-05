@@ -11,9 +11,7 @@ namespace Liga_Cordobesa.Backend.Servicios
     {
         bool RegistrarBajaEquipo(int presupuesto);
         List<Equipo> ConsultarEquipo(List<Parametro> criterios);
-        List<Persona> ConsultarPersonas();
         bool GrabarEquipo(Equipo oEquipo);
-        bool Insertar(Persona oPersona);
         int ObtenerProximoEquipoID();
         Equipo ObtenerEquipoPorID(int nro);
 

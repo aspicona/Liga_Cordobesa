@@ -1,6 +1,8 @@
 ﻿using Liga_Cordobesa.Backend.Acceso_a_datos;
+using Liga_Cordobesa.Backend.Acceso_a_datos.Interfaces;
 using Liga_Cordobesa.Backend.Dominio;
 using Liga_Cordobesa.Backend.Servicios;
+using Liga_Cordobesa.Backend.Servicios.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +20,7 @@ namespace Liga_Cordobesa.Frontend.Presentacion
         private IEquipoDao dao;
         private Equipo equipo;
         private IEquipoService servicio;
+        private IPersonaService personaServ;
         private Accion modo;
 
         Equipo oEquipo = new Equipo();
@@ -27,6 +30,8 @@ namespace Liga_Cordobesa.Frontend.Presentacion
         {
             InitializeComponent();
             servicio = new ServiceFactoryImp().CrearEquipoService();
+            personaServ = new ServiceFactoryImp().CrearPersonaService();
+
             this.modo = modo;
             dao = new EquipoDao();
         }
@@ -56,7 +61,7 @@ namespace Liga_Cordobesa.Frontend.Presentacion
 
         private void CargarComboPersonas()
         {
-            List<Persona> lst = dao.TraerPersonas();
+            List<Persona> lst = personaServ.ConsultarPersonas();
 
             //source es una lista de objetos
             cboJugador.DataSource = lst;

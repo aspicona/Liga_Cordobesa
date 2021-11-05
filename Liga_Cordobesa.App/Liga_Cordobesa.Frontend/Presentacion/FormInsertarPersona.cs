@@ -1,6 +1,8 @@
 ﻿
 using Liga_Cordobesa.Backend.Dominio;
 using Liga_Cordobesa.Backend.Servicios;
+using Liga_Cordobesa.Backend.Servicios.Interfaces;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +10,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,7 +26,7 @@ namespace Liga_Cordobesa.Frontend.Presentacion
     }
     public partial class FormInsertarPersona : Form
     {
-        private IEquipoService servicio;
+        private IPersonaService servicio;
         private Accion modo;
 
         Equipo oEquipo = new Equipo();
@@ -31,7 +34,7 @@ namespace Liga_Cordobesa.Frontend.Presentacion
         public FormInsertarPersona(Accion modo, int nro)
         {
             InitializeComponent();
-            servicio = new ServiceFactoryImp().CrearEquipoService();
+            servicio = new ServiceFactoryImp().CrearPersonaService();
             this.modo = modo;
 
             //if (modo.Equals(Accion.READ))
@@ -49,7 +52,7 @@ namespace Liga_Cordobesa.Frontend.Presentacion
 
         }
 
-        private void btnAceptarPersona_Click(object sender, EventArgs e)
+        private async void btnAceptarPersona_Click(object sender, EventArgs e)
         {
             if (validarCampos())
             {
@@ -60,7 +63,14 @@ namespace Liga_Cordobesa.Frontend.Presentacion
                 oPersona.Apellido = txtApellido.Text.ToString();
                 oPersona.FechaNac = Convert.ToDateTime(dtpFechaPersona.Text);
 
-                if (servicio.Insertar(oPersona))
+                HttpClient client = new HttpClient();
+                string url = "https://localhost:44342/api/Persona";
+                string persJSON = JsonConvert.SerializeObject(oPersona);
+
+                var result = await PostAsync(url, persJSON);
+                bool personaCreada = JsonConvert.DeserializeObject<Boolean>(result);
+
+                if (personaCreada)
                 {
                     MessageBox.Show("Persona ingresada con éxito!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Dispose();
@@ -110,6 +120,17 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             }
 
             return true;
+        }
+
+        public async Task<string> PostAsync(string url, string data)
+        {
+            HttpClient client = new HttpClient();
+            StringContent content = new StringContent(data, Encoding.UTF8, "application/json");
+            var result = await client.PostAsync(url, content);
+            var response = "";
+            if (result.IsSuccessStatusCode)
+                response = await result.Content.ReadAsStringAsync();
+            return response;
         }
 
         private void btnCancelarPersona_Click(object sender, EventArgs e)

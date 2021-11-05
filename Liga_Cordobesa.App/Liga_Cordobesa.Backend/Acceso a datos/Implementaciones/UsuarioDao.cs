@@ -14,9 +14,10 @@ namespace Liga_Cordobesa.Backend.Acceso_a_datos.Implementaciones
     {
         public bool Login(string usuario, string contrasena)
         {
+            HelperDao helper = HelperDao.ObtenerInstancia();
             SqlConnection cnn;
             cnn = new SqlConnection();
-            cnn.ConnectionString = @"Data Source=DESKTOP-CLVH0O5\SQLEXPRESS;Initial Catalog=LigaCordobesa;Integrated Security=True";
+            cnn.ConnectionString = helper.PConn;
 
             bool esUsuario = false;
 
