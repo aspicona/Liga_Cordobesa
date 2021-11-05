@@ -21,7 +21,7 @@ namespace Liga_Cordobesa.Frontend.Presentacion
         private void nuevoEquipoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form_Alta_Equipo frmNuevo = new Form_Alta_Equipo(modo,1);
-            frmNuevo.ShowDialog();
+            frmNuevo.Show();
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)

@@ -1,6 +1,4 @@
-﻿using EquipoTP;
-using Liga_Cordobesa.App.Presentacion;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -21,7 +19,7 @@ namespace Liga_Cordobesa.App
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormPrincipal());
+            Application.Run(new Form1());
         }
     }
 }

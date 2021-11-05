@@ -10,7 +10,6 @@ namespace Liga_Cordobesa.Backend.Dominio
     {
         public int IdEquipo { get; set; }
         public String NombreEquipo { get; set; }
-
         public String Dt { get; set; }
 
         public List<Jugador> Jugadores { get; }
@@ -18,7 +17,6 @@ namespace Liga_Cordobesa.Backend.Dominio
         public Equipo()
         {
             Jugadores = new List<Jugador>();
-
         }
 
         public void QuitarJugador(int nro)

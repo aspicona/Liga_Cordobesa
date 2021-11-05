@@ -14,7 +14,7 @@ namespace Liga_Cordobesa.Backend.Servicios
         bool GrabarEquipo(Equipo oEquipo);
         int ObtenerProximoEquipoID();
         Equipo ObtenerEquipoPorID(int nro);
-
+        List<Posicion> ObtenerPosiciones();
     }
 
 }

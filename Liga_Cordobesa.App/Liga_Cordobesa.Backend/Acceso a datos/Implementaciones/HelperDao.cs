@@ -47,9 +47,9 @@ namespace Liga_Cordobesa.Backend.Servicios.Implementaciones
 
                 cmd.Parameters.Add(param);
                 cmd.ExecuteScalar();
-                val = (int)param.Value;
+                val = (int) param.Value;
             }
-            catch (SqlException)
+            catch (Exception)
             {
                 val = 0;
             }

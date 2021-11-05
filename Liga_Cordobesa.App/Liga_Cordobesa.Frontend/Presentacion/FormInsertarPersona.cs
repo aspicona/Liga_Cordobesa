@@ -73,7 +73,7 @@ namespace Liga_Cordobesa.Frontend.Presentacion
                 if (personaCreada)
                 {
                     MessageBox.Show("Persona ingresada con éxito!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Dispose();
+                    LimpiarCampos();
                 }
                 else
                 {
@@ -120,6 +120,13 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             }
 
             return true;
+        }
+
+        private void LimpiarCampos()
+        {
+            txtApellido.Text = "";
+            txtNombre.Text = "";
+            txtDni.Text = "";
         }
 
         public async Task<string> PostAsync(string url, string data)

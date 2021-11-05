@@ -37,17 +37,17 @@ namespace Liga_Cordobesa.Backend.Acceso_a_datos
                 param.ParameterName = "@equipo_nro";
                 param.SqlDbType = SqlDbType.Int;
                 param.Direction = ParameterDirection.Output;
-
                 cmdEquipo.Parameters.Add(param);
+
                 cmdEquipo.ExecuteNonQuery();
 
-                int nroEquipo = (int)param.Value;
+                int nroEquipo = (int) param.Value;
 
                 foreach (Jugador jug in oEquipo.Jugadores)
                 {
                     SqlCommand cmd = new SqlCommand("SP_INSERTAR_JUGADOR", cnn);
-                    cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Transaction = transaccion;
+                    cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@id_persona", jug.Persona.Id_Persona);
                     cmd.Parameters.AddWithValue("@camiseta", jug.Camiseta);
                     cmd.Parameters.AddWithValue("@id_posicion", jug.Posicion.Id_posicion);
@@ -56,13 +56,10 @@ namespace Liga_Cordobesa.Backend.Acceso_a_datos
                 }
 
                 transaccion.Commit();
-
             }
-            catch
+            catch (Exception)
             {
                 transaccion.Rollback();
-                flag = false;
-
             }
             finally
             {

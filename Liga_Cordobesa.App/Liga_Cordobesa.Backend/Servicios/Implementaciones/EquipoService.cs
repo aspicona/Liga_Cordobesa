@@ -37,12 +37,17 @@ namespace Liga_Cordobesa.Backend.Servicios
 
         public int ObtenerProximoEquipoID()
         {
-            throw new NotImplementedException();
+            return dao.TraerNroEquipo();
         }
 
         public bool RegistrarBajaEquipo(int presupuesto)
         {
             throw new NotImplementedException();
+        }
+
+        List<Posicion> IEquipoService.ObtenerPosiciones()
+        {
+            return dao.TraerPosicion();
         }
     }
 

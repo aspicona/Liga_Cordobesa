@@ -3,12 +3,14 @@ using Liga_Cordobesa.Backend.Acceso_a_datos.Interfaces;
 using Liga_Cordobesa.Backend.Dominio;
 using Liga_Cordobesa.Backend.Servicios;
 using Liga_Cordobesa.Backend.Servicios.Interfaces;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,30 +19,35 @@ namespace Liga_Cordobesa.Frontend.Presentacion
 {
     public partial class Form_Alta_Equipo : Form
     {
-        private IEquipoDao dao;
-        private Equipo equipo;
-        private IEquipoService servicio;
-        private IPersonaService personaServ;
         private Accion modo;
 
         Equipo oEquipo = new Equipo();
-        Posicion oPosicion = new Posicion();
 
         public Form_Alta_Equipo(Accion modo, int nro)
         {
             InitializeComponent();
-            servicio = new ServiceFactoryImp().CrearEquipoService();
-            personaServ = new ServiceFactoryImp().CrearPersonaService();
 
             this.modo = modo;
-            dao = new EquipoDao();
         }
 
         private void Form_Alta_Equipo_Load(object sender, EventArgs e)
         {
             CargarComboPersonas();
             CargarComboPosicion();
-            lblNroEquipo.Text = "Equipo Nro: " + dao.TraerNroEquipo();
+
+            GetProximoIDEquipo();
+        }
+
+        private async void GetProximoIDEquipo()
+        {
+            string url = "https://localhost:44342/api/Equipo/proxID";
+            HttpClient client = new HttpClient();
+
+            var result = await client.GetAsync(url);
+
+            var bodyJSON = await result.Content.ReadAsStringAsync();
+
+            lblNroEquipo.Text = "Equipo Nro: " + JsonConvert.DeserializeObject<int>(bodyJSON);
         }
 
         private void FormInsertarPersona_FormClosing(object sender, FormClosingEventArgs e)
@@ -48,24 +55,38 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             Form_Alta_Equipo_Load(sender, e);
         }
 
-        private void CargarComboPosicion()
+        private async void CargarComboPosicion()
         {
-            List<Posicion> lstPosicion = dao.TraerPosicion();
+            string url = "https://localhost:44342/api/Equipo/posiciones";
+            HttpClient client = new HttpClient();
+
+            var result = await client.GetAsync(url);
+
+            var bodyJSON = await result.Content.ReadAsStringAsync();
+
+            List<Posicion> lstPosicion = JsonConvert.DeserializeObject<List<Posicion>>(bodyJSON);
 
             //source es una lista de objetos
             cboPosicion.DataSource = lstPosicion;
+            
             //valueMember y DisplayMember serán las properties de los objetos
             cboPosicion.ValueMember = "id_posicion";
             cboPosicion.DisplayMember = "NombrePosicion";
         }
 
-        private void CargarComboPersonas()
+        private async void CargarComboPersonas()
         {
-            List<Persona> lst = personaServ.ConsultarPersonas();
+            string url = "https://localhost:44342/api/Persona";
+            HttpClient client = new HttpClient();
 
-            //source es una lista de objetos
-            cboJugador.DataSource = lst;
+            var result = await client.GetAsync(url);
+
+            var bodyJSON = await result.Content.ReadAsStringAsync();
+
+            List<Persona> lst = JsonConvert.DeserializeObject<List<Persona>>(bodyJSON); 
+
             //valueMember y DisplayMember serán las properties de los objetos
+            cboJugador.DataSource = lst;
             cboJugador.ValueMember = "id_persona";
             cboJugador.DisplayMember = "nombre";
         }
@@ -85,21 +106,32 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             }
         }
 
-        private bool ExisteJugadorEnGrilla(string text)
+        private bool ExisteJugadorEnGrilla(string text, string pos)
         {
             foreach (DataGridViewRow fila in dgvEquipo.Rows)
             {
-                if (fila.Cells["jugador"].Value.Equals(text))
+                if (fila.Cells["id"].Value.ToString().Equals(text))
+                {
+                    MessageBox.Show("Jugador ya agregado en el equipo", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return true;
+                }
+                   
+                if (fila.Cells["camiseta"].Value.ToString().Equals(pos))
+                {
+                    MessageBox.Show("Nº de Camiseta ya esta asignada", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return true;
+                }
+
             }
+
             return false;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (ExisteJugadorEnGrilla(cboJugador.Text))
+            if (ExisteJugadorEnGrilla(cboJugador.SelectedValue.ToString(), 
+                Convert.ToString(nudCamiseta.Value)))
             {
-                MessageBox.Show("Jugador ya agregado en el equipo", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -113,10 +145,10 @@ namespace Liga_Cordobesa.Frontend.Presentacion
 
             oEquipo.AgregarJugador(item);
 
-            dgvEquipo.Rows.Add(new object[] { "", oPersona.Nombre, oPosicion.NombrePosicion, item.Camiseta });
+            dgvEquipo.Rows.Add(new object[] { oPersona.Id_Persona, oPersona.Nombre + ", " + oPersona.Apellido, oPosicion.NombrePosicion, item.Camiseta });
         }
 
-        private void btnAceptar_Click(object sender, EventArgs e)
+        private async void btnAceptar_Click(object sender, EventArgs e)
         {
             if (dgvEquipo.Rows.Count <= 4)
             {
@@ -152,24 +184,43 @@ namespace Liga_Cordobesa.Frontend.Presentacion
                 return;
             }
             
-
             oEquipo.NombreEquipo = txtNombreEquipo.Text;
             oEquipo.Dt = txtDT.Text;
-            //oEquipo.IdEquipo = dao.TraerNroEquipo();
 
+            HttpClient client = new HttpClient();
+            string url = "https://localhost:44342/api/Equipo";
+            string equipoJSON = JsonConvert.SerializeObject(oEquipo);
 
-            if (servicio.GrabarEquipo(oEquipo))
+            var result = await PostAsync(url, equipoJSON);
+            bool equipoGuardado = JsonConvert.DeserializeObject<Boolean>(result);
+
+            if (equipoGuardado)
             {
                 MessageBox.Show("Equipo guardado con éxito!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Dispose();
+                LimpiarCampos();
             }
             else
             {
                 MessageBox.Show("Error al intentar grabar el equipo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
 
+        public async Task<string> PostAsync(string url, string data)
+        {
+            HttpClient client = new HttpClient();
+            StringContent content = new StringContent(data, Encoding.UTF8, "application/json");
+            var result = await client.PostAsync(url, content);
+            var response = "";
+            if (result.IsSuccessStatusCode)
+                response = await result.Content.ReadAsStringAsync();
+            return response;
+        }
 
-
+        private void LimpiarCampos()
+        {
+            txtNombreEquipo.Text = "";
+            txtDT.Text = "";
+            dgvEquipo.Rows.Clear();
         }
     }
 }
