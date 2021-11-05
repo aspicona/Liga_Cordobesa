@@ -66,7 +66,7 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             {
                 FormPrincipal form = new FormPrincipal();
                 form.Show();
-                //this.Close();
+                this.Hide();
             } else
             {
                 MessageBox.Show("Usuario y/o contraseña Incorrecta");
