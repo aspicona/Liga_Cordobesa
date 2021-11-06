@@ -5,11 +5,13 @@ namespace Liga_Cordobesa.Frontend.Presentacion
 {
     public partial class FormPrincipal : Form
     {
+        private Login login;
         private Accion modo;
 
-        public FormPrincipal()
+        public FormPrincipal(Login login)
         {
             InitializeComponent();
+            this.login = login;
         }
 
         private void informacionToolStripMenuItem_Click(object sender, EventArgs e)
@@ -28,18 +30,18 @@ namespace Liga_Cordobesa.Frontend.Presentacion
         {
             if (MessageBox.Show("¿Seguro que desea salir de la aplicación?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                login.Dispose();
                 this.Dispose();
             }
         }
 
-        private void FormPrincipal_Load(object sender, EventArgs e)
+        private void cerrarSesionMenuItem_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
+            if (MessageBox.Show("¿Seguro que desea cerrar Sesion?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Dispose();
+                login.Show();
+            }
         }
     }
 }

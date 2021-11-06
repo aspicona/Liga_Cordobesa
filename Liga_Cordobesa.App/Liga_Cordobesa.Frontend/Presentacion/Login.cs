@@ -64,7 +64,7 @@ namespace Liga_Cordobesa.Frontend.Presentacion
 
             if(existUser)
             {
-                FormPrincipal form = new FormPrincipal();
+                FormPrincipal form = new FormPrincipal(this);
                 form.Show();
                 this.Hide();
             } else
@@ -82,6 +82,13 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             if (result.IsSuccessStatusCode)
                 response = await result.Content.ReadAsStringAsync();
             return response;
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            txtUsuario.Text = "";
+            txtContraseña.Text = "";
+            txtContraseña.UseSystemPasswordChar = true;
         }
     }
 }
