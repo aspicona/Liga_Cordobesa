@@ -93,6 +93,7 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             lst = JsonConvert.DeserializeObject<List<JugadoresDTO>>(resultado);
 
             dataGridView2.Rows.Clear();
+            
             foreach (JugadoresDTO oJug in lst)
             {
                 dataGridView2.Rows.Add(new object[]{
@@ -105,7 +106,7 @@ namespace Liga_Cordobesa.Frontend.Presentacion
                                         oJug.Camiseta,
                                         oJug.NombrePosicion,
                                         oJug.Id_persona
-                 });
+                 }); ;
             }
         }
 
@@ -298,25 +299,34 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             return response;
         }
 
-        private async void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dataGridView2.CurrentCell.ColumnIndex == 9)
             {
-                int nroJugador = Convert.ToInt32(dataGridView2.CurrentRow.Cells[0].Value);
-                string url = "https://localhost:44342/api/Jugadores/" + nroJugador;
-                HttpClient client = new HttpClient();
-
-                var result = await client.DeleteAsync(url);
-
-                var bodyJSON = await result.Content.ReadAsStringAsync();
-
-                bool isDeleted = JsonConvert.DeserializeObject<Boolean>(bodyJSON);
-
-                if(isDeleted)
+                DialogResult result = MessageBox.Show("¿Está seguro que desea eliminar el Jugador del equipo?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
                 {
-                    MessageBox.Show("Se elimino Jugador del Equipo", "Validaciones", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    CargarJugadores();
+                    QuitarJugador();
                 }
+            }
+        }
+
+        private async void QuitarJugador()
+        {
+            int nroJugador = Convert.ToInt32(dataGridView2.CurrentRow.Cells[0].Value);
+            string url = "https://localhost:44342/api/Jugadores/" + nroJugador;
+            HttpClient client = new HttpClient();
+
+            var result = await client.DeleteAsync(url);
+
+            var bodyJSON = await result.Content.ReadAsStringAsync();
+
+            bool isDeleted = JsonConvert.DeserializeObject<Boolean>(bodyJSON);
+
+            if (isDeleted)
+            {
+                MessageBox.Show("Se elimino Jugador del Equipo", "Validaciones", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CargarJugadores();
             }
         }
     }

@@ -182,7 +182,7 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             // 
             this.btnEdit.HeaderText = "Editar";
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Text = "Editar";
+            this.btnEdit.Text = "Editar Persona";
             // 
             // FormConsultarJugadores
             // 
@@ -196,6 +196,7 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             this.Controls.Add(this.label1);
             this.Name = "FormConsultarJugadores";
             this.Text = "FormConsultarJugadores";
+            this.Activated += new System.EventHandler(this.FormConsultarJugadores_Activated);
             this.Load += new System.EventHandler(this.FormConsultarJugadores_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

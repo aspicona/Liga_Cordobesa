@@ -41,16 +41,6 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fec_nac = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.equipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.camiseta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idpers = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnSalir2 = new System.Windows.Forms.Button();
             this.cboPosicion = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -61,6 +51,16 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             this.cboJugador = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnUpdateTeam = new System.Windows.Forms.Button();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fec_nac = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.equipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.camiseta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idpers = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnQuitar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -184,66 +184,13 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             this.camiseta,
             this.pos,
             this.idpers,
-            this.btnEdit});
+            this.btnQuitar});
             this.dataGridView2.Location = new System.Drawing.Point(6, 21);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowTemplate.Height = 25;
             this.dataGridView2.Size = new System.Drawing.Size(813, 279);
             this.dataGridView2.TabIndex = 4;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Apellido";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "DNI";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // fec_nac
-            // 
-            this.fec_nac.HeaderText = "Fecha Nac.";
-            this.fec_nac.Name = "fec_nac";
-            // 
-            // equipo
-            // 
-            this.equipo.HeaderText = "Equipo";
-            this.equipo.Name = "equipo";
-            // 
-            // camiseta
-            // 
-            this.camiseta.HeaderText = "Nº Camiseta";
-            this.camiseta.Name = "camiseta";
-            // 
-            // pos
-            // 
-            this.pos.HeaderText = "Posicion";
-            this.pos.Name = "pos";
-            // 
-            // idpers
-            // 
-            this.idpers.HeaderText = "idpers";
-            this.idpers.Name = "idpers";
-            this.idpers.Visible = false;
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.HeaderText = "Editar";
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Text = "Editar";
             // 
             // btnSalir2
             // 
@@ -357,6 +304,59 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             this.btnUpdateTeam.UseVisualStyleBackColor = true;
             this.btnUpdateTeam.Click += new System.EventHandler(this.btnUpdateTeam_Click);
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Apellido";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "DNI";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // fec_nac
+            // 
+            this.fec_nac.HeaderText = "Fecha Nac.";
+            this.fec_nac.Name = "fec_nac";
+            // 
+            // equipo
+            // 
+            this.equipo.HeaderText = "Equipo";
+            this.equipo.Name = "equipo";
+            // 
+            // camiseta
+            // 
+            this.camiseta.HeaderText = "Nº Camiseta";
+            this.camiseta.Name = "camiseta";
+            // 
+            // pos
+            // 
+            this.pos.HeaderText = "Posicion";
+            this.pos.Name = "pos";
+            // 
+            // idpers
+            // 
+            this.idpers.HeaderText = "idpers";
+            this.idpers.Name = "idpers";
+            this.idpers.Visible = false;
+            // 
+            // btnQuitar
+            // 
+            this.btnQuitar.HeaderText = "";
+            this.btnQuitar.Name = "btnQuitar";
+            this.btnQuitar.Text = "Quitar Jugador";
+            // 
             // FormConsultarEquipo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -409,6 +409,9 @@ namespace Liga_Cordobesa.Frontend.Presentacion
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.ComboBox cboJugador;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnUpdateTeam;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -418,9 +421,6 @@ namespace Liga_Cordobesa.Frontend.Presentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn camiseta;
         private System.Windows.Forms.DataGridViewTextBoxColumn pos;
         private System.Windows.Forms.DataGridViewTextBoxColumn idpers;
-        private System.Windows.Forms.DataGridViewButtonColumn btnEdit;
-        private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btnUpdateTeam;
+        private System.Windows.Forms.DataGridViewButtonColumn btnQuitar;
     }
 }
