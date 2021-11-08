@@ -49,6 +49,37 @@ namespace Liga_Cordobesa.Backend.Acceso_a_datos.Implementaciones
             return lst;
         }
 
+        public bool InsertarJugador(Jugador jug, int idEquipo)
+        {
+            HelperDao helper = HelperDao.ObtenerInstancia();
+            SqlConnection cnn = new SqlConnection();
+            cnn.ConnectionString = helper.PConn;
+
+            bool flag = true;
+            try
+            {
+               cnn.Open();
+
+               SqlCommand cmd = new SqlCommand("SP_INSERTAR_JUGADOR", cnn);
+               cmd.CommandType = CommandType.StoredProcedure;
+               cmd.Parameters.AddWithValue("@id_persona", jug.Persona.Id_Persona);
+               cmd.Parameters.AddWithValue("@camiseta", jug.Camiseta);
+               cmd.Parameters.AddWithValue("@id_posicion", jug.Posicion.Id_posicion);
+               cmd.Parameters.AddWithValue("@id_equipo", idEquipo);
+               cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                flag = false;
+            }
+            finally
+            {
+                if (cnn != null && cnn.State == ConnectionState.Open)
+                    cnn.Close();
+            }
+            return flag;
+        }
+
         public List<JugadoresDTO> ObtenerJugadores()
         {
             HelperDao helper = HelperDao.ObtenerInstancia();

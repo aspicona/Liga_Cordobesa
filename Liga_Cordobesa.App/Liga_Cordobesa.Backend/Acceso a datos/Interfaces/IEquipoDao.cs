@@ -16,6 +16,7 @@ namespace Liga_Cordobesa.Backend.Acceso_a_datos
         bool Guardar(Equipo oEquipo);
         int TraerNroEquipo();
         Equipo EquipoPorId(int id);
+        bool Actualizar(Equipo oEquipo);
         bool Delete(int nro);
     }
 }

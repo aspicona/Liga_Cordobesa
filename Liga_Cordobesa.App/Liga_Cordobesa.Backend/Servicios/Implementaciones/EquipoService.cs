@@ -32,7 +32,7 @@ namespace Liga_Cordobesa.Backend.Servicios
 
         public Equipo ObtenerEquipoPorID(int nro)
         {
-            throw new NotImplementedException();
+            return dao.EquipoPorId(nro);
         }
 
         public List<Equipo> ObtenerEquipos()
@@ -48,6 +48,11 @@ namespace Liga_Cordobesa.Backend.Servicios
         public bool RegistrarBajaEquipo(int presupuesto)
         {
             throw new NotImplementedException();
+        }
+
+        public bool UpdateEquipo(Equipo oEquipo)
+        {
+            return dao.Actualizar(oEquipo);
         }
 
         List<Posicion> IEquipoService.ObtenerPosiciones()

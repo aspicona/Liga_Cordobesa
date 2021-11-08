@@ -47,5 +47,24 @@ namespace Liga_Cordobesa.Web.Controllers
         {
             return Ok(service.ObtenerEquipos());
         }
+
+        [HttpGet("{id}")]
+        public IActionResult GetEquipoById(int id)
+        {
+            if (id == 0)
+                return BadRequest("Id es requerido!");
+            return Ok(service.ObtenerEquipoPorID(id));
+        }
+
+        [HttpPut("update")]
+        public IActionResult UpdateEquipo(Equipo equipo)
+        {
+            if (equipo == null)
+            {
+                return BadRequest("Datos del Equipo son Requeridos!!");
+            }
+
+            return Ok(service.UpdateEquipo(equipo));
+        }
     }
 }

@@ -124,6 +124,7 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             this.consultarEquipoToolStripMenuItem.Name = "consultarEquipoToolStripMenuItem";
             this.consultarEquipoToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.consultarEquipoToolStripMenuItem.Text = "Consultar Equipo";
+            this.consultarEquipoToolStripMenuItem.Click += new System.EventHandler(this.consultarEquipoToolStripMenuItem_Click);
             // 
             // reportesToolStripMenuItem
             // 

@@ -103,7 +103,38 @@ namespace Liga_Cordobesa.Backend.Acceso_a_datos
 
         public Equipo EquipoPorId(int id)
         {
-            throw new NotImplementedException();
+            HelperDao helper = HelperDao.ObtenerInstancia();
+            SqlConnection cnn;
+            cnn = new SqlConnection();
+            cnn.ConnectionString = helper.PConn;
+
+            try
+            {
+                cnn.Open();
+
+                SqlCommand cmdEquipo = new SqlCommand("SP_EQUIPO_BY_ID", cnn);
+                cmdEquipo.CommandType = CommandType.StoredProcedure;
+                cmdEquipo.Parameters.AddWithValue("@id", id);
+
+                DataTable table = new DataTable();
+                table.Load(cmdEquipo.ExecuteReader());
+
+                Equipo oEquipo = new Equipo();
+                oEquipo.IdEquipo = Convert.ToInt32(table.Rows[0]["id_equipo"].ToString());
+                oEquipo.NombreEquipo = table.Rows[0]["nombre_equipo"].ToString();
+                oEquipo.Dt = table.Rows[0]["dt"].ToString();
+
+                return oEquipo;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            finally
+            {
+                if (cnn != null && cnn.State == ConnectionState.Open)
+                    cnn.Close();
+            }
         }
 
         public bool Delete(int nro)
@@ -127,6 +158,38 @@ namespace Liga_Cordobesa.Backend.Acceso_a_datos
                 lst.Add(equipo);
             }
             return lst;
+        }
+
+        public bool Actualizar(Equipo oEquipo)
+        {
+            HelperDao helper = HelperDao.ObtenerInstancia();
+            SqlConnection cnn = new SqlConnection();
+            cnn.ConnectionString = helper.PConn;
+
+            bool flag = true;
+            try
+            {
+                cnn.Open();
+
+                SqlCommand cmdEquipo = new SqlCommand("SP_UPDATE_EQUIPO", cnn);
+                cmdEquipo.CommandType = CommandType.StoredProcedure;
+                cmdEquipo.Parameters.AddWithValue("@nombre_equipo", oEquipo.NombreEquipo.ToString());
+                cmdEquipo.Parameters.AddWithValue("@dt", oEquipo.Dt);
+                cmdEquipo.Parameters.AddWithValue("@dt", oEquipo.IdEquipo);
+
+                cmdEquipo.ExecuteNonQuery();
+            }
+            //catch (Exception)
+            //{
+            //    flag = false;
+            //}
+            finally
+            {
+                if (cnn != null && cnn.State == ConnectionState.Open)
+                    cnn.Close();
+            }
+
+            return flag;
         }
     }
 }

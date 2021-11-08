@@ -16,6 +16,7 @@ namespace Liga_Cordobesa.Backend.Servicios
         Equipo ObtenerEquipoPorID(int nro);
         List<Posicion> ObtenerPosiciones();
         List<Equipo> ObtenerEquipos();
+        bool UpdateEquipo(Equipo oEquipo);
     }
 
 }

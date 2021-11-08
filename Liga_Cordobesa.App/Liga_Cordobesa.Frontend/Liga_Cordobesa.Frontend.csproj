@@ -16,20 +16,20 @@
   </ItemGroup>
 
   <ItemGroup>
-<<<<<<< HEAD
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
-=======
-    <Compile Update="Informes\DataSet1.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>DataSet1.xsd</DependentUpon>
->>>>>>> 56dc41fdde7bc1a6475cf3905c236d9b58dde821
     </Compile>
   </ItemGroup>
 
+	<ItemGroup>
+		<Compile Update="Informes\DataSet1.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>DataSet1.xsd</DependentUpon>
+		</Compile>
+	</ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

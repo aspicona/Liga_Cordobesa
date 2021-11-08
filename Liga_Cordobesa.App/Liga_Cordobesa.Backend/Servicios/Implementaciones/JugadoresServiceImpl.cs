@@ -25,6 +25,11 @@ namespace Liga_Cordobesa.Backend.Servicios.Implementaciones
             return dao.FiltrarJugadores(criteria);
         }
 
+        public bool InsertarJugador(Jugador jugador, int idEquipo)
+        {
+            return dao.InsertarJugador(jugador, idEquipo);
+        }
+
         public List<JugadoresDTO> ObtenerJugadores()
         {
             return dao.ObtenerJugadores();

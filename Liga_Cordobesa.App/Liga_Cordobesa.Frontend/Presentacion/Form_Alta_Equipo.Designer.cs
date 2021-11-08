@@ -113,7 +113,6 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             this.cboJugador.Name = "cboJugador";
             this.cboJugador.Size = new System.Drawing.Size(301, 28);
             this.cboJugador.TabIndex = 2;
-            this.cboJugador.SelectedIndexChanged += new System.EventHandler(this.cboJugador_SelectedIndexChanged);
             // 
             // label2
             // 

@@ -49,5 +49,11 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             FormConsultarJugadores form = new FormConsultarJugadores();
             form.Show();
         }
+
+        private void consultarEquipoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormConsultarEquipo form = new FormConsultarEquipo();
+            form.Show();
+        }
     }
 }
