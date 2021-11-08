@@ -29,21 +29,30 @@ namespace Liga_Cordobesa.Frontend.Presentacion
         private IPersonaService servicio;
         private Accion modo;
 
-        Equipo oEquipo = new Equipo();
+        private Equipo oEquipo;
+        private JugadoresDTO jugador;
+        private int id_persona;
         
-        public FormInsertarPersona(Accion modo, int nro)
+        public FormInsertarPersona(Accion modo, JugadoresDTO jugador, int idPers)
         {
             InitializeComponent();
             servicio = new ServiceFactoryImp().CrearPersonaService();
             this.modo = modo;
+            this.jugador = jugador;
+            this.id_persona = idPers;
 
-            //if (modo.Equals(Accion.READ))
-            //{
-            //    gbDatosPresupuesto.Enabled = false;
-            //    btnAceptar.Enabled = false;
-            //    this.Text = "VER EQUIPO";
-            //    this.Cargar_presupuesto(nro);
-            //}
+            if (modo.Equals(Accion.UPDATE))
+            {
+                btnAceptarPersona.Text = "Actualizar";
+                txtApellido.Text = jugador.Apellido;
+                txtNombre.Text = jugador.Nombre;
+                txtDni.Text = jugador.Dni.ToString();
+                dtpFechaPersona.Value = jugador.FechaNac;
+            } 
+            else if (modo.Equals(Accion.CREATE))
+            {
+
+            }
 
         }
 
@@ -52,33 +61,73 @@ namespace Liga_Cordobesa.Frontend.Presentacion
 
         }
 
-        private async void btnAceptarPersona_Click(object sender, EventArgs e)
+        private void btnAceptarPersona_Click(object sender, EventArgs e)
         {
             if (validarCampos())
             {
-                Persona oPersona = new Persona();  
-                //pasar datos al objeto 
-                oPersona.Dni = Convert.ToInt32(txtDni.Text);
-                oPersona.Nombre = txtNombre.Text.ToString();
-                oPersona.Apellido = txtApellido.Text.ToString();
-                oPersona.FechaNac = Convert.ToDateTime(dtpFechaPersona.Text);
-
-                HttpClient client = new HttpClient();
-                string url = "https://localhost:44342/api/Persona";
-                string persJSON = JsonConvert.SerializeObject(oPersona);
-
-                var result = await PostAsync(url, persJSON);
-                bool personaCreada = JsonConvert.DeserializeObject<Boolean>(result);
-
-                if (personaCreada)
+                if(modo.Equals(Accion.CREATE))
                 {
-                    MessageBox.Show("Persona ingresada con éxito!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LimpiarCampos();
-                }
-                else
+                    InsertarPersona();
+                } else if(modo.Equals(Accion.UPDATE))
                 {
-                    MessageBox.Show("Error al intentar ingresar Persona", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ActualizarPersona();
                 }
+                
+            }
+        }
+
+        private async void ActualizarPersona()
+        {
+            Persona oPersona = new Persona();
+            //pasar datos al objeto 
+            oPersona.Dni = Convert.ToInt32(txtDni.Text);
+            oPersona.Nombre = txtNombre.Text.ToString();
+            oPersona.Apellido = txtApellido.Text.ToString();
+            oPersona.FechaNac = Convert.ToDateTime(dtpFechaPersona.Text);
+            oPersona.Id_Persona = this.id_persona;
+
+            HttpClient client = new HttpClient();
+            string url = "https://localhost:44342/api/Persona/update";
+            string persJSON = JsonConvert.SerializeObject(oPersona);
+
+            var result = await PostAsync(url, persJSON);
+            bool personaCreada = JsonConvert.DeserializeObject<Boolean>(result);
+
+            if (personaCreada)
+            {
+                MessageBox.Show("Persona actualizada con éxito!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LimpiarCampos();
+            }
+            else
+            {
+                MessageBox.Show("Error al intentar actualizar Persona", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async void InsertarPersona()
+        {
+            Persona oPersona = new Persona();
+            //pasar datos al objeto 
+            oPersona.Dni = Convert.ToInt32(txtDni.Text);
+            oPersona.Nombre = txtNombre.Text.ToString();
+            oPersona.Apellido = txtApellido.Text.ToString();
+            oPersona.FechaNac = Convert.ToDateTime(dtpFechaPersona.Text);
+
+            HttpClient client = new HttpClient();
+            string url = "https://localhost:44342/api/Persona";
+            string persJSON = JsonConvert.SerializeObject(oPersona);
+
+            var result = await PostAsync(url, persJSON);
+            bool personaCreada = JsonConvert.DeserializeObject<Boolean>(result);
+
+            if (personaCreada)
+            {
+                MessageBox.Show("Persona ingresada con éxito!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LimpiarCampos();
+            }
+            else
+            {
+                MessageBox.Show("Error al intentar ingresar Persona", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

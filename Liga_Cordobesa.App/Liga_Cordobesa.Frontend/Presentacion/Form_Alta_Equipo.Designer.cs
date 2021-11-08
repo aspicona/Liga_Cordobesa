@@ -213,6 +213,7 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             this.btnCancelar.TabIndex = 9;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnAceptar
             // 
@@ -232,7 +233,7 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(118, 27);
             this.button1.TabIndex = 10;
-            this.button1.Text = "Agregar persona";
+            this.button1.Text = "Nueva Persona";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -300,6 +301,7 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             this.Name = "Form_Alta_Equipo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Alta Equipos";
+            this.Activated += new System.EventHandler(this.Form_Alta_Equipo_Activated);
             this.Load += new System.EventHandler(this.Form_Alta_Equipo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudCamiseta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEquipo)).EndInit();

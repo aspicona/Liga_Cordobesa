@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 
 namespace Liga_Cordobesa.Backend.Servicios.Interfaces
 {
-    public interface IPersonaService
+    public interface IJugadoresService
     {
-        List<Persona> ConsultarPersonas();
-        bool Insertar(Persona oPersona);
-        bool UpdatePersona(Persona oPersona);
+        List<JugadoresDTO> ObtenerJugadores();
+        List<JugadoresDTO> FiltrarJugadores(List<Parametro> criteria);
     }
 }

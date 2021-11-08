@@ -22,11 +22,12 @@ namespace Liga_Cordobesa.Frontend.Presentacion
         private Accion modo;
 
         Equipo oEquipo = new Equipo();
+        private IEquipoService service;
 
         public Form_Alta_Equipo(Accion modo, int nro)
         {
             InitializeComponent();
-
+            service = new EquipoService();
             this.modo = modo;
         }
 
@@ -93,7 +94,7 @@ namespace Liga_Cordobesa.Frontend.Presentacion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FormInsertarPersona frmNuevo = new FormInsertarPersona(modo, 1);
+            FormInsertarPersona frmNuevo = new FormInsertarPersona(modo, null, 0);
             frmNuevo.ShowDialog();
         }
 
@@ -187,14 +188,14 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             oEquipo.NombreEquipo = txtNombreEquipo.Text;
             oEquipo.Dt = txtDT.Text;
 
-            HttpClient client = new HttpClient();
-            string url = "https://localhost:44342/api/Equipo";
-            string equipoJSON = JsonConvert.SerializeObject(oEquipo);
+            //string url = "https://localhost:44342/api/Equipo";
+            //string equipoJSON = JsonConvert.SerializeObject(oEquipo);
 
-            var result = await PostAsync(url, equipoJSON);
-            bool equipoGuardado = JsonConvert.DeserializeObject<Boolean>(result);
+            //var result = await PostAsync(url, equipoJSON);
+            
+            //bool equipoGuardado = JsonConvert.DeserializeObject<Boolean>(result);
 
-            if (equipoGuardado)
+            if (service.GrabarEquipo(oEquipo))
             {
                 MessageBox.Show("Equipo guardado con éxito!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LimpiarCampos();
@@ -221,6 +222,23 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             txtNombreEquipo.Text = "";
             txtDT.Text = "";
             dgvEquipo.Rows.Clear();
+        }
+
+        private void Form_Alta_Equipo_Activated(object sender, EventArgs e)
+        {
+            CargarComboPersonas();
+            CargarComboPosicion();
+
+            GetProximoIDEquipo();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Está seguro que desea cancelar la carga?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                LimpiarCampos();
+            }
         }
     }
 }

@@ -15,6 +15,7 @@ namespace Liga_Cordobesa.Backend.Servicios
         int ObtenerProximoEquipoID();
         Equipo ObtenerEquipoPorID(int nro);
         List<Posicion> ObtenerPosiciones();
+        List<Equipo> ObtenerEquipos();
     }
 
 }

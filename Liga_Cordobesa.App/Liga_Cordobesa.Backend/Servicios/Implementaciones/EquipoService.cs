@@ -35,6 +35,11 @@ namespace Liga_Cordobesa.Backend.Servicios
             throw new NotImplementedException();
         }
 
+        public List<Equipo> ObtenerEquipos()
+        {
+            return dao.ObtenerEquipos();
+        }
+
         public int ObtenerProximoEquipoID()
         {
             return dao.TraerNroEquipo();
@@ -50,23 +55,4 @@ namespace Liga_Cordobesa.Backend.Servicios
             return dao.TraerPosicion();
         }
     }
-
-    //        public Equipo ObtenerEquipoPorID(int nro)
-    //        {
-    //            return service.EquipoPorId(nro);
-    //        }
-
-    //        public int ObtenerProximoEquipoID()
-    //        {
-    //            return dao.TraerNroEquipo();
-    //        }
-
-    //        public bool RegistrarBajaEquipo(int presupuesto)
-    //        {
-    //            return dao.Delete(presupuesto);
-    //        }
-
-
-    //    }
-    //}
 }

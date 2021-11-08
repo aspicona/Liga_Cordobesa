@@ -43,5 +43,11 @@ namespace Liga_Cordobesa.Frontend.Presentacion
                 login.Show();
             }
         }
+
+        private void jugadoresMenuItem_Click(object sender, EventArgs e)
+        {
+            FormConsultarJugadores form = new FormConsultarJugadores();
+            form.Show();
+        }
     }
 }

@@ -10,6 +10,7 @@ namespace Liga_Cordobesa.Backend.Acceso_a_datos
 {
     public interface IEquipoDao
     {
+        List<Equipo> ObtenerEquipos();
         List<Equipo> ConsultarEquipo(List<Parametro> criterios);
         List<Posicion> TraerPosicion();
         bool Guardar(Equipo oEquipo);

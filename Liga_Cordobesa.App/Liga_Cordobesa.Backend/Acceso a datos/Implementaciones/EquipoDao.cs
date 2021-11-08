@@ -60,6 +60,7 @@ namespace Liga_Cordobesa.Backend.Acceso_a_datos
             catch (Exception)
             {
                 transaccion.Rollback();
+                flag = false;
             }
             finally
             {
@@ -97,7 +98,7 @@ namespace Liga_Cordobesa.Backend.Acceso_a_datos
 
         public List<Equipo> ConsultarEquipo(List<Parametro> criterios)
         {
-            throw new NotImplementedException();
+            return null;
         }
 
         public Equipo EquipoPorId(int id)
@@ -108,6 +109,24 @@ namespace Liga_Cordobesa.Backend.Acceso_a_datos
         public bool Delete(int nro)
         {
             throw new NotImplementedException();
+        }
+
+        public List<Equipo> ObtenerEquipos()
+        {
+            HelperDao helper = HelperDao.ObtenerInstancia();
+            DataTable table = helper.ConsultaSQL("SP_CONSULTAR_EQUIPO");
+
+            List<Equipo> lst = new List<Equipo>();
+
+            foreach (DataRow row in table.Rows)
+            {
+                Equipo equipo = new Equipo();
+                equipo.IdEquipo = Convert.ToInt32(row["id_equipo"].ToString());
+                equipo.NombreEquipo = row["nombre_equipo"].ToString();
+                equipo.Dt = row["dt"].ToString();
+                lst.Add(equipo);
+            }
+            return lst;
         }
     }
 }

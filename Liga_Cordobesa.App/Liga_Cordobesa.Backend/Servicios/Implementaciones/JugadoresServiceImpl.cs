@@ -10,28 +10,24 @@ using System.Threading.Tasks;
 
 namespace Liga_Cordobesa.Backend.Servicios.Implementaciones
 {
-    public class PersonaServiceImpl : IPersonaService
+    public class JugadoresServiceImpl : IJugadoresService
     {
-        private IPersonaDao dao;
+        private IJugadoresDAO dao;
+        JugadoresDTO jugadoresDTO;
 
-        public PersonaServiceImpl()
+        public JugadoresServiceImpl()
         {
-            dao = new PersonaDAOImpl();
+            dao = new JugadoresDAOImpl();
         }
 
-        public List<Persona> ConsultarPersonas()
+        public List<JugadoresDTO> FiltrarJugadores(List<Parametro> criteria)
         {
-            return dao.TraerPersonas();
+            return dao.FiltrarJugadores(criteria);
         }
 
-        public bool Insertar(Persona oPersona)
+        public List<JugadoresDTO> ObtenerJugadores()
         {
-            return dao.Insertar(oPersona);
-        }
-
-        public bool UpdatePersona(Persona oPersona)
-        {
-            return dao.Update(oPersona);
+            return dao.ObtenerJugadores();
         }
     }
 }

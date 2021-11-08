@@ -39,5 +39,16 @@ namespace Liga_Cordobesa.Web.Controllers
             return Ok(service.Insertar(persona));
         }
 
+        [HttpPost("update")]
+        public IActionResult UpdatePersona(Persona persona)
+        {
+            if (persona == null)
+            {
+                return BadRequest("Datos de la persona son requeridos!!");
+            }
+
+            return Ok(service.UpdatePersona(persona));
+        }
+
     }
 }

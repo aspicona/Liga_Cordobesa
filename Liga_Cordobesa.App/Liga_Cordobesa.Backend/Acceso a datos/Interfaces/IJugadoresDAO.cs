@@ -1,4 +1,5 @@
 ﻿using Liga_Cordobesa.Backend.Dominio;
+using Liga_Cordobesa.Backend.Servicios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,10 +8,9 @@ using System.Threading.Tasks;
 
 namespace Liga_Cordobesa.Backend.Acceso_a_datos.Interfaces
 {
-    public interface IPersonaDao
+    public interface IJugadoresDAO
     {
-        public List<Persona> TraerPersonas();
-        public bool Insertar(Persona oPersona);
-        public bool Update(Persona oPersona);
+        List<JugadoresDTO> ObtenerJugadores();
+        List<JugadoresDTO> FiltrarJugadores(List<Parametro> criterios);
     }
 }

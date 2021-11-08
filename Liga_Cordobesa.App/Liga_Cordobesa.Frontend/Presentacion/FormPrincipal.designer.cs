@@ -32,9 +32,10 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cerrarSesionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.soporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.equiposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.jugadoresMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transaccionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoEquipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarEquipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,7 +43,6 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             this.consultaReportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cerrarSesionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,7 +60,7 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(793, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(920, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.TabStop = true;
             this.menuStrip1.Text = "menuStrip1";
@@ -74,6 +74,13 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 22);
             this.archivoToolStripMenuItem.Text = "Archivo";
             // 
+            // cerrarSesionMenuItem
+            // 
+            this.cerrarSesionMenuItem.Name = "cerrarSesionMenuItem";
+            this.cerrarSesionMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.cerrarSesionMenuItem.Text = "Cerrar Sesion";
+            this.cerrarSesionMenuItem.Click += new System.EventHandler(this.cerrarSesionMenuItem_Click);
+            // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
@@ -84,16 +91,17 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             // soporteToolStripMenuItem
             // 
             this.soporteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.equiposToolStripMenuItem});
+            this.jugadoresMenuItem});
             this.soporteToolStripMenuItem.Name = "soporteToolStripMenuItem";
             this.soporteToolStripMenuItem.Size = new System.Drawing.Size(60, 22);
             this.soporteToolStripMenuItem.Text = "Soporte";
             // 
-            // equiposToolStripMenuItem
+            // jugadoresMenuItem
             // 
-            this.equiposToolStripMenuItem.Name = "equiposToolStripMenuItem";
-            this.equiposToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.equiposToolStripMenuItem.Text = "Consultar Jugadores";
+            this.jugadoresMenuItem.Name = "jugadoresMenuItem";
+            this.jugadoresMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.jugadoresMenuItem.Text = "Consultar Jugadores";
+            this.jugadoresMenuItem.Click += new System.EventHandler(this.jugadoresMenuItem_Click);
             // 
             // transaccionToolStripMenuItem
             // 
@@ -146,19 +154,15 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             this.informacionToolStripMenuItem.Text = "Informacion";
             this.informacionToolStripMenuItem.Click += new System.EventHandler(this.informacionToolStripMenuItem_Click);
             // 
-            // cerrarSesionMenuItem
-            // 
-            this.cerrarSesionMenuItem.Name = "cerrarSesionMenuItem";
-            this.cerrarSesionMenuItem.Size = new System.Drawing.Size(143, 22);
-            this.cerrarSesionMenuItem.Text = "Cerrar Sesion";
-            this.cerrarSesionMenuItem.Click += new System.EventHandler(this.cerrarSesionMenuItem_Click);
-            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(793, 337);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(920, 443);
             this.Controls.Add(this.menuStrip1);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -176,7 +180,7 @@ namespace Liga_Cordobesa.Frontend.Presentacion
         private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem soporteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem equiposToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem jugadoresMenuItem;
         private System.Windows.Forms.ToolStripMenuItem transaccionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nuevoEquipoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarEquipoToolStripMenuItem;
@@ -184,8 +188,9 @@ namespace Liga_Cordobesa.Frontend.Presentacion
         private System.Windows.Forms.ToolStripMenuItem consultaReportesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem informacionToolStripMenuItem;
-        public System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem cerrarSesionMenuItem;
+        public System.Windows.Forms.MenuStrip menuStrip1;
+        
     }
 }
 

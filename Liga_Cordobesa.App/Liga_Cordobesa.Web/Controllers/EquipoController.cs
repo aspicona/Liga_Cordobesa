@@ -41,5 +41,11 @@ namespace Liga_Cordobesa.Web.Controllers
 
             return Ok(service.GrabarEquipo(equipo));
         }
+
+        [HttpGet()]
+        public IActionResult GetEquipos()
+        {
+            return Ok(service.ObtenerEquipos());
+        }
     }
 }

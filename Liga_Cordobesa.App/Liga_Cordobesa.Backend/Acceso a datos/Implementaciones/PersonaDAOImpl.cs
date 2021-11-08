@@ -71,5 +71,45 @@ namespace Liga_Cordobesa.Backend.Acceso_a_datos.Implementaciones
             }
             return lst;
         }
+
+        public bool Update(Persona oPersona)
+        {
+            HelperDao helper = HelperDao.ObtenerInstancia();
+            SqlTransaction transaccion = null;
+            SqlConnection cnn = new SqlConnection(helper.PConn);
+
+            bool flag = true;
+            try
+            {
+                cnn.Open();
+                transaccion = cnn.BeginTransaction();
+
+                SqlCommand cmd = new SqlCommand("SP_UPDATE_PERSONA", cnn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Transaction = transaccion;
+
+                cmd.Parameters.AddWithValue("@nro_doc ", oPersona.Dni);
+                cmd.Parameters.AddWithValue("@nombre", oPersona.Nombre);
+                cmd.Parameters.AddWithValue("@apellido", oPersona.Apellido);
+                cmd.Parameters.AddWithValue("@fecha_nac", oPersona.FechaNac);
+                cmd.Parameters.AddWithValue("@id_pers", oPersona.Id_Persona);
+                cmd.ExecuteNonQuery();
+
+                transaccion.Commit();
+            }
+
+            catch
+            {
+                transaccion.Rollback();
+                flag = false;
+            }
+
+            finally
+            {
+                if (cnn != null && cnn.State == ConnectionState.Open)
+                    cnn.Close();
+            }
+            return flag;
+        }
     }
 }
