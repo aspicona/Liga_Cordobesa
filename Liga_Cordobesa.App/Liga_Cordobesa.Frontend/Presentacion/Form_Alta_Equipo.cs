@@ -224,6 +224,7 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             dgvEquipo.Rows.Clear();
         }
 
+<<<<<<< HEAD
         private void Form_Alta_Equipo_Activated(object sender, EventArgs e)
         {
             CargarComboPersonas();
@@ -239,6 +240,11 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             {
                 LimpiarCampos();
             }
+=======
+        private void cboJugador_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+>>>>>>> 56dc41fdde7bc1a6475cf3905c236d9b58dde821
         }
     }
 }
