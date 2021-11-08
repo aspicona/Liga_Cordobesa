@@ -20,6 +20,11 @@ namespace Liga_Cordobesa.Backend.Servicios.Implementaciones
             dao = new JugadoresDAOImpl();
         }
 
+        public bool DeleteJugador(int id)
+        {
+            return dao.EliminarJugador(id);
+        }
+
         public List<JugadoresDTO> FiltrarJugadores(List<Parametro> criteria)
         {
             return dao.FiltrarJugadores(criteria);

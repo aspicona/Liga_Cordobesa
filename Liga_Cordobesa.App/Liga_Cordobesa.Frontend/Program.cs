@@ -19,7 +19,6 @@ namespace Liga_Cordobesa.Frontend
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Login());
-            //Application.Run(new FormInsertarPersona(Accion.CREATE, 1));
         }
     }
 }

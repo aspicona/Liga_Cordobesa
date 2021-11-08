@@ -12,5 +12,6 @@ namespace Liga_Cordobesa.Backend.Servicios.Interfaces
         List<JugadoresDTO> ObtenerJugadores();
         List<JugadoresDTO> FiltrarJugadores(List<Parametro> criteria);
         bool InsertarJugador(Jugador jugador, int idEquipo);
+        bool DeleteJugador(int id);
     }
 }

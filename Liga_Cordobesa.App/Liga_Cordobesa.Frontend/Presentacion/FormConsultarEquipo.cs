@@ -270,6 +270,9 @@ namespace Liga_Cordobesa.Frontend.Presentacion
                 return;
             }
 
+            oEquipo.NombreEquipo = txtNombre.Text;
+            oEquipo.Dt = txtDt.Text;
+
             string url = "https://localhost:44342/api/Equipo/update";
             string equipoJSON = JsonConvert.SerializeObject(oEquipo);
 
@@ -278,7 +281,9 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             bool response = JsonConvert.DeserializeObject<Boolean>(result);
             if (response)
             {
-
+                MessageBox.Show("Se Actualizo los datos del Equipo", "Validaciones", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CargarComboEquipo();
+                DesabilitarComponentesJugador();
             }
         }
 
@@ -291,6 +296,28 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             if (result.IsSuccessStatusCode)
                 response = await result.Content.ReadAsStringAsync();
             return response;
+        }
+
+        private async void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView2.CurrentCell.ColumnIndex == 9)
+            {
+                int nroJugador = Convert.ToInt32(dataGridView2.CurrentRow.Cells[0].Value);
+                string url = "https://localhost:44342/api/Jugadores/" + nroJugador;
+                HttpClient client = new HttpClient();
+
+                var result = await client.DeleteAsync(url);
+
+                var bodyJSON = await result.Content.ReadAsStringAsync();
+
+                bool isDeleted = JsonConvert.DeserializeObject<Boolean>(bodyJSON);
+
+                if(isDeleted)
+                {
+                    MessageBox.Show("Se elimino Jugador del Equipo", "Validaciones", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CargarJugadores();
+                }
+            }
         }
     }
 }

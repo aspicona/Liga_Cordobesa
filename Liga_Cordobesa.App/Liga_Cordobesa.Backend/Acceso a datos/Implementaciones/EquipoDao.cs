@@ -175,7 +175,7 @@ namespace Liga_Cordobesa.Backend.Acceso_a_datos
                 cmdEquipo.CommandType = CommandType.StoredProcedure;
                 cmdEquipo.Parameters.AddWithValue("@nombre_equipo", oEquipo.NombreEquipo.ToString());
                 cmdEquipo.Parameters.AddWithValue("@dt", oEquipo.Dt);
-                cmdEquipo.Parameters.AddWithValue("@dt", oEquipo.IdEquipo);
+                cmdEquipo.Parameters.AddWithValue("@nro", oEquipo.IdEquipo);
 
                 cmdEquipo.ExecuteNonQuery();
             }
