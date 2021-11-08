@@ -222,5 +222,10 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             txtDT.Text = "";
             dgvEquipo.Rows.Clear();
         }
+
+        private void cboJugador_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

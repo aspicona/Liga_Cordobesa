@@ -16,9 +16,24 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Informes\DataSet1.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Update="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Informes\DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
 </Project>
