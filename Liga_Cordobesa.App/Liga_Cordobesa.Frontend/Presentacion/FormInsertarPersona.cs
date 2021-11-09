@@ -197,5 +197,15 @@ namespace Liga_Cordobesa.Frontend.Presentacion
                 this.Dispose();
             }
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblDni_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

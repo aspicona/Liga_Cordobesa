@@ -29,15 +29,12 @@ namespace Liga_Cordobesa.Frontend.Presentacion
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormConsultarJugadores));
             this.label1 = new System.Windows.Forms.Label();
             this.cmbEquipos = new System.Windows.Forms.ComboBox();
             this.btnFiltrar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnSalir = new System.Windows.Forms.Button();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,38 +45,59 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             this.pos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idpers = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(49, 18);
+            this.label1.BackColor = System.Drawing.Color.Black;
+            this.label1.Font = new System.Drawing.Font("Elephant", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(124, 34);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 15);
+            this.label1.Size = new System.Drawing.Size(82, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "Equipo: ";
             // 
             // cmbEquipos
             // 
             this.cmbEquipos.FormattingEnabled = true;
-            this.cmbEquipos.Location = new System.Drawing.Point(97, 15);
+            this.cmbEquipos.Location = new System.Drawing.Point(218, 31);
+            this.cmbEquipos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmbEquipos.Name = "cmbEquipos";
-            this.cmbEquipos.Size = new System.Drawing.Size(253, 23);
+            this.cmbEquipos.Size = new System.Drawing.Size(289, 28);
             this.cmbEquipos.TabIndex = 1;
             // 
             // btnFiltrar
             // 
-            this.btnFiltrar.Location = new System.Drawing.Point(372, 14);
+            this.btnFiltrar.BackColor = System.Drawing.Color.Black;
+            this.btnFiltrar.Font = new System.Drawing.Font("Elephant", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnFiltrar.ForeColor = System.Drawing.Color.White;
+            this.btnFiltrar.Location = new System.Drawing.Point(586, 27);
+            this.btnFiltrar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(75, 23);
+            this.btnFiltrar.Size = new System.Drawing.Size(105, 47);
             this.btnFiltrar.TabIndex = 2;
             this.btnFiltrar.Text = "Filtrar";
-            this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.UseVisualStyleBackColor = false;
             this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
             // dataGridView1
             // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Elephant", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -92,111 +110,149 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             this.pos,
             this.idpers,
             this.btnEdit});
-            this.dataGridView1.Location = new System.Drawing.Point(13, 53);
+            this.dataGridView1.Location = new System.Drawing.Point(40, 156);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(679, 317);
+            this.dataGridView1.Size = new System.Drawing.Size(783, 253);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Visible = false;
+            this.dataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Apellido";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "DNI";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 125;
+            // 
+            // fec_nac
+            // 
+            this.fec_nac.HeaderText = "Fecha Nac.";
+            this.fec_nac.MinimumWidth = 6;
+            this.fec_nac.Name = "fec_nac";
+            this.fec_nac.Width = 125;
+            // 
+            // equipo
+            // 
+            this.equipo.HeaderText = "Equipo";
+            this.equipo.MinimumWidth = 6;
+            this.equipo.Name = "equipo";
+            this.equipo.Width = 125;
+            // 
+            // camiseta
+            // 
+            this.camiseta.HeaderText = "Nº Camiseta";
+            this.camiseta.MinimumWidth = 6;
+            this.camiseta.Name = "camiseta";
+            this.camiseta.Width = 125;
+            // 
+            // pos
+            // 
+            this.pos.HeaderText = "Posicion";
+            this.pos.MinimumWidth = 6;
+            this.pos.Name = "pos";
+            this.pos.Width = 125;
+            // 
+            // idpers
+            // 
+            this.idpers.HeaderText = "idpers";
+            this.idpers.MinimumWidth = 6;
+            this.idpers.Name = "idpers";
+            this.idpers.Visible = false;
+            this.idpers.Width = 125;
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.HeaderText = "Editar";
+            this.btnEdit.MinimumWidth = 6;
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Text = "Editar";
+            this.btnEdit.Width = 125;
+            // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(617, 376);
+            this.btnSalir.BackColor = System.Drawing.Color.Black;
+            this.btnSalir.Font = new System.Drawing.Font("Elephant", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSalir.ForeColor = System.Drawing.Color.White;
+            this.btnSalir.Location = new System.Drawing.Point(713, 477);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(75, 23);
+            this.btnSalir.Size = new System.Drawing.Size(96, 38);
             this.btnSalir.TabIndex = 4;
             this.btnSalir.Text = "Cerrar";
-            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // Id
             // 
             this.Id.HeaderText = "id";
+            this.Id.MinimumWidth = 6;
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
             this.Id.Visible = false;
+            this.Id.Width = 125;
             // 
             // Nombre
             // 
             this.Nombre.HeaderText = "nombre";
+            this.Nombre.MinimumWidth = 6;
             this.Nombre.Name = "Nombre";
+            this.Nombre.Width = 125;
             // 
             // Apellido
             // 
             this.Apellido.HeaderText = "apellido";
+            this.Apellido.MinimumWidth = 6;
             this.Apellido.Name = "Apellido";
+            this.Apellido.Width = 125;
             // 
             // DNI
             // 
             this.DNI.HeaderText = "dni";
+            this.DNI.MinimumWidth = 6;
             this.DNI.Name = "DNI";
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Apellido";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "DNI";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // fec_nac
-            // 
-            this.fec_nac.HeaderText = "Fecha Nac.";
-            this.fec_nac.Name = "fec_nac";
-            // 
-            // equipo
-            // 
-            this.equipo.HeaderText = "Equipo";
-            this.equipo.Name = "equipo";
-            // 
-            // camiseta
-            // 
-            this.camiseta.HeaderText = "Nº Camiseta";
-            this.camiseta.Name = "camiseta";
-            // 
-            // pos
-            // 
-            this.pos.HeaderText = "Posicion";
-            this.pos.Name = "pos";
-            // 
-            // idpers
-            // 
-            this.idpers.HeaderText = "idpers";
-            this.idpers.Name = "idpers";
-            this.idpers.Visible = false;
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.HeaderText = "Editar";
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Text = "Editar Persona";
+            this.DNI.Width = 125;
             // 
             // FormConsultarJugadores
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(704, 411);
+            this.BackgroundImage = global::Liga_Cordobesa.Frontend.Properties.Resources.cancha;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ClientSize = new System.Drawing.Size(863, 540);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnFiltrar);
             this.Controls.Add(this.cmbEquipos);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormConsultarJugadores";
-            this.Text = "FormConsultarJugadores";
-            this.Activated += new System.EventHandler(this.FormConsultarJugadores_Activated);
+            this.Text = "Consultar Jugadores";
             this.Load += new System.EventHandler(this.FormConsultarJugadores_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

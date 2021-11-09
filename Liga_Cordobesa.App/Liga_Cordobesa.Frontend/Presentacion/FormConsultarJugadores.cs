@@ -131,10 +131,5 @@ namespace Liga_Cordobesa.Frontend.Presentacion
                 response = await result.Content.ReadAsStringAsync();
             return response;
         }
-
-        private void FormConsultarJugadores_Activated(object sender, EventArgs e)
-        {
-            CargarJugadores();
-        }
     }
 }
