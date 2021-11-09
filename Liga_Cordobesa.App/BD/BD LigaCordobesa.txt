@@ -1,0 +1,284 @@
+
+CREATE TABLE [dbo].[EQUIPOS](
+	[id_equipo] [int] IDENTITY(1,1) NOT NULL,
+	[nombre_equipo] [varchar](50) NULL,
+	[dt] [varchar](50) NULL,
+ CONSTRAINT [pk_id_equipo] PRIMARY KEY (id_equipo))
+
+/****** Object:  Table [dbo].[JUGADORES]    Script Date: 31/10/2021 22:20:54 ******/
+CREATE TABLE [dbo].[JUGADORES](
+	[id_jugador] [int] IDENTITY(1,1) NOT NULL,
+	[id_persona] [int] NOT NULL,
+	[camiseta] [int] NOT NULL,
+	[id_posicion] [int] NOT NULL,
+	[id_equipo] [int] NULL,
+ CONSTRAINT [pk_id_jugador] PRIMARY KEY (id_jugador)) 
+
+/****** Object:  Table [dbo].[PERSONAS]    Script Date: 31/10/2021 22:20:54 ******/
+CREATE TABLE [dbo].[PERSONAS](
+	[id_persona] [int] IDENTITY(1,1) NOT NULL,
+	[nro_doc] [int] NOT NULL,
+	[nombre] [varchar](50) NOT NULL,
+	[apellido] [varchar](50) NOT NULL,
+	[fecha_nac] [datetime] NOT NULL,
+ CONSTRAINT [pk_id_persona] PRIMARY KEY (id_persona))
+
+/****** Object:  Table [dbo].[POSICION]    Script Date: 31/10/2021 22:20:54 ******/
+CREATE TABLE [dbo].[POSICION](
+	[id_posicion] [int] IDENTITY(1,1) NOT NULL,
+	[nombre_posicion] [varchar](50) NOT NULL,
+ CONSTRAINT [pk_id_posicion] PRIMARY KEY (id_posicion))
+
+/****** Object:  Table [dbo].[POSICION]    Script Date: 31/10/2021 22:20:54 ******/
+ create table Usuarios(
+	id_usuario int primary key identity,
+	nombre_usuario nvarchar(100),
+	contrasena nvarchar(100)
+)
+insert into usuarios(nombre_usuario, contrasena) values ('andres', '1234')
+
+/*************** ALTER Tables - FK ******************/
+ALTER TABLE [dbo].[JUGADORES]  WITH CHECK ADD  CONSTRAINT [fk_id_persona] FOREIGN KEY([id_persona])
+REFERENCES [dbo].[PERSONAS] ([id_persona])
+GO
+ALTER TABLE [dbo].[JUGADORES] CHECK CONSTRAINT [fk_id_persona]
+GO
+ALTER TABLE [dbo].[JUGADORES]  WITH CHECK ADD  CONSTRAINT [fk_jugadores_equipos] FOREIGN KEY([id_equipo])
+REFERENCES [dbo].[EQUIPOS] ([id_equipo])
+GO
+ALTER TABLE [dbo].[JUGADORES] CHECK CONSTRAINT [fk_jugadores_equipos]
+GO
+
+/****** Object:  StoredProcedure [dbo].[SP_CONSULTAR_EQUIPO]    Script Date: 31/10/2021 22:20:54 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[SP_CONSULTAR_EQUIPO]
+AS
+BEGIN
+	SELECT *
+	FROM EQUIPOS
+END
+
+GO
+/****** Object:  StoredProcedure [dbo].[SP_CONSULTAR_PERSONA]    Script Date: 31/10/2021 22:20:54 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[SP_CONSULTAR_PERSONA]
+AS
+BEGIN
+	SELECT *
+	FROM PERSONAS p
+END
+
+GO
+/****** Object:  StoredProcedure [dbo].[SP_CONSULTAR_POSICION]    Script Date: 31/10/2021 22:20:54 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[SP_CONSULTAR_POSICION]
+AS
+BEGIN
+	SELECT *
+	FROM POSICION
+END
+
+GO
+
+/****** Object:  StoredProcedure [dbo].[SP_CONSULTAR_JUGADORES]    Script Date: 31/10/2021 22:20:54 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[SP_CONSULTAR_JUGADORES]
+AS
+BEGIN
+	SELECT j.id_jugador, pe.nombre, pe.apellido, pe.nro_doc, pe.fecha_nac, e.nombre_equipo, j.camiseta, po.nombre_posicion, pe.id_persona
+	FROM JUGADORES j JOIN PERSONAS pe ON j.id_persona = pe.id_persona
+		JOIN POSICION po ON po.id_posicion = j.id_posicion
+		JOIN EQUIPOS e ON j.id_equipo = e.id_equipo
+END
+
+GO
+
+/****** Object:  StoredProcedure [dbo].[SP_CONSULTAR_JUGADORES]    Script Date: 31/10/2021 22:20:54 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[SP_JUGADORES_POR_EQUIPO]
+@equipo int 
+AS
+BEGIN
+	SELECT j.id_jugador, pe.nombre, pe.apellido, pe.nro_doc, pe.fecha_nac, e.nombre_equipo, j.camiseta, po.nombre_posicion, pe.id_persona
+	FROM JUGADORES j JOIN PERSONAS pe ON j.id_persona = pe.id_persona
+		JOIN POSICION po ON po.id_posicion = j.id_posicion
+		JOIN EQUIPOS e ON j.id_equipo = e.id_equipo
+	WHERE e.id_equipo = @equipo
+END
+
+GO
+EXEC SP_JUGADORES_POR_EQUIPO 2
+/****** Object:  StoredProcedure [dbo].[SP_INSERTAR_EQUIPO]    Script Date: 31/10/2021 22:20:54 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[SP_INSERTAR_EQUIPO]
+	@nombre_equipo varchar(50),
+	@dt varchar(500),
+	@equipo_nro int OUTPUT
+AS
+BEGIN
+	INSERT INTO EQUIPOS(nombre_equipo, dt)
+    VALUES (@nombre_equipo, @dt)
+	SET @equipo_nro = SCOPE_IDENTITY();
+
+END
+GO
+
+/****** Object:  StoredProcedure [dbo].[SP_UPDATE_EQUIPO]    Script Date: 31/10/2021 22:20:54 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[SP_UPDATE_EQUIPO]
+	@nombre_equipo varchar(50),
+	@dt varchar(500),
+	@nro int
+AS
+BEGIN
+	UPDATE EQUIPOS SET nombre_equipo = @nombre_equipo, dt = @dt 
+	WHERE id_equipo = @nro
+
+END
+GO
+EXEC SP_UPDATE_EQUIPO 'nuevo nombre', 'nuevo dt', 6
+/****** Object:  StoredProcedure [dbo].[SP_INSERTAR_JUGADOR]    Script Date: 31/10/2021 22:20:54 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[SP_INSERTAR_JUGADOR] 
+	@id_persona int,
+	@camiseta int, 
+	@id_posicion int, 
+	@id_equipo int
+AS
+BEGIN
+	INSERT INTO JUGADORES(id_persona, camiseta, id_posicion, id_equipo)
+    VALUES (@id_persona, @camiseta, @id_posicion, @id_equipo);
+  
+END
+GO
+
+
+/****** Object:  StoredProcedure [dbo].[SP_DELETE_JUGADOR]    Script Date: 31/10/2021 22:20:54 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[SP_DELETE_JUGADOR] 
+	@id int
+AS
+BEGIN
+	DELETE JUGADORES
+    Where id_jugador = @id
+  
+END
+GO
+
+
+/****** Object:  StoredProcedure [dbo].[SP_UPDATE_PERSONA   Script Date: 31/10/2021 22:20:54 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[SP_UPDATE_PERSONA] 
+	@nro_doc int,
+	@nombre varchar(50),
+	@apellido varchar(50),
+	@fecha_nac datetime,
+	@id_pers int
+AS
+BEGIN
+	UPDATE PERSONAS SET nro_doc = @nro_doc, nombre = @nombre, apellido = @apellido, 
+	fecha_nac = @fecha_nac WHERE id_persona = @id_pers;
+  
+END
+GO
+
+/****** Object:  StoredProcedure [dbo].[SP_INSERTAR_PERSONA]    Script Date: 31/10/2021 22:20:54 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[SP_INSERTAR_PERSONA]
+	@nro_doc int,
+	@nombre varchar(50),
+	@apellido varchar(50),
+	@fecha_nac datetime
+AS
+BEGIN
+	INSERT INTO PERSONAS(nro_doc,nombre,apellido,fecha_nac)
+    VALUES (@nro_doc, @nombre, @apellido,@fecha_nac);
+
+END
+GO
+/****** Object:  StoredProcedure [dbo].[SP_PROXIMO_ID_EQUIPO]    Script Date: 31/10/2021 22:20:54 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[SP_PROXIMO_ID_EQUIPO]
+@next int OUTPUT
+AS
+BEGIN
+	SET @next = (SELECT MAX(id_equipo)+1  FROM EQUIPOS);
+END	
+GO
+
+/****** Object:  StoredProcedure [dbo].[SP_EQUIPO_BY_ID]    Script Date: 31/10/2021 22:20:54 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[SP_EQUIPO_BY_ID]
+@id int 
+AS
+BEGIN
+	SELECT *
+	FROM EQUIPOS Where id_equipo = @id
+END	
+GO
+
+
+/***** LOGIN *****/
+GO
+CREATE PROCEDURE [dbo].[SP_VALIDAR_LOGIN]
+	@nombreUsuario nvarchar(100),
+	@contrasena nvarchar(100),
+	@existe bit output
+AS
+BEGIN
+	if ((SELECT id_usuario
+		FROM Usuarios
+		WHERE nombre_usuario = @nombreUsuario and
+		contrasena = @contrasena) <> 0)
+		set @existe = 1
+		else
+		set @existe = 0
+END
+
+
+INSERT INTO POSICION (nombre_posicion) VALUES ('ARQUERO')
+INSERT INTO POSICION (nombre_posicion) VALUES ('DEFENSOR')
+INSERT INTO POSICION (nombre_posicion) VALUES ('MEDIOCAMPISTA')
+INSERT INTO POSICION (nombre_posicion) VALUES ('DELANTERO')
+
+ALTER TABLE jugadores
+ADD CONSTRAINT fk_jugadores_id_posicion FOREIGN KEY (id_posicion) references POSICION (id_posicion)
