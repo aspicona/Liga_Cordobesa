@@ -48,7 +48,9 @@ namespace Liga_Cordobesa.Frontend.Presentacion
 
             var bodyJSON = await result.Content.ReadAsStringAsync();
 
-            lblNroEquipo.Text = "Equipo Nro: " + JsonConvert.DeserializeObject<int>(bodyJSON);
+            int nroProxEquipo = JsonConvert.DeserializeObject<int>(bodyJSON);
+
+            lblNroEquipo.Text = "Equipo Nro: " + (nroProxEquipo == 0 ? 1 : nroProxEquipo);
         }
 
         private void FormInsertarPersona_FormClosing(object sender, FormClosingEventArgs e)
