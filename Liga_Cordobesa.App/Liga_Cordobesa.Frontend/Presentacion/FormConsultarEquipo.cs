@@ -200,7 +200,9 @@ namespace Liga_Cordobesa.Frontend.Presentacion
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             txtDt.Text = "";
+            txtNombre.Text = "";
             txtDt.Enabled = false;
+            txtNombre.Enabled = false;
             dataGridView2.Rows.Clear();
             DesabilitarComponentesJugador();
             cboEquipo.Enabled = true;
@@ -301,25 +303,63 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             return response;
         }
 
-        private async void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dataGridView2.CurrentCell.ColumnIndex == 9)
             {
-                int nroJugador = Convert.ToInt32(dataGridView2.CurrentRow.Cells[0].Value);
-                string url = "https://localhost:44342/api/Jugadores/" + nroJugador;
-                HttpClient client = new HttpClient();
-
-                var result = await client.DeleteAsync(url);
-
-                var bodyJSON = await result.Content.ReadAsStringAsync();
-
-                bool isDeleted = JsonConvert.DeserializeObject<Boolean>(bodyJSON);
-
-                if(isDeleted)
+                DialogResult result = MessageBox.Show("¿Está seguro que desea eliminar el jugador del Equipo?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
                 {
-                    MessageBox.Show("Se elimino Jugador del Equipo", "Validaciones", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    CargarJugadores();
+                    EliminarJugador();
                 }
+            }
+        }
+
+        private async void EliminarJugador()
+        {
+            int nroJugador = Convert.ToInt32(dataGridView2.CurrentRow.Cells[0].Value);
+            string url = "https://localhost:44342/api/Jugadores/" + nroJugador;
+            HttpClient client = new HttpClient();
+
+            var result = await client.DeleteAsync(url);
+
+            var bodyJSON = await result.Content.ReadAsStringAsync();
+
+            bool isDeleted = JsonConvert.DeserializeObject<Boolean>(bodyJSON);
+
+            if (isDeleted)
+            {
+                MessageBox.Show("Se elimino Jugador del Equipo", "Validaciones", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CargarJugadores();
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Está seguro que desea eliminar el Equipo con todos sus Jugadores?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                EliminarEquipo(sender, e);
+            }
+        }
+
+        private async void EliminarEquipo(object sender, EventArgs e)
+        {
+            int nroEquipo = Convert.ToInt32(cboEquipo.SelectedValue);
+            string url = "https://localhost:44342/api/Equipo/" + nroEquipo;
+            HttpClient client = new HttpClient();
+
+            var result = await client.DeleteAsync(url);
+
+            var bodyJSON = await result.Content.ReadAsStringAsync();
+
+            bool isDeleted = JsonConvert.DeserializeObject<Boolean>(bodyJSON);
+
+            if (isDeleted)
+            {
+                MessageBox.Show("Se elimino Equipo", "Validaciones", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CargarComboEquipo();
+                btnLimpiar_Click(sender, e);
             }
         }
     }

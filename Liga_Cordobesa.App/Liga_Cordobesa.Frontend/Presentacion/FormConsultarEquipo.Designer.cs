@@ -450,6 +450,7 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             this.btnEliminar.TabIndex = 30;
             this.btnEliminar.Text = "Eliminar Equipo";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // FormConsultarEquipo
             // 
