@@ -154,6 +154,14 @@ namespace Liga_Cordobesa.Frontend.Presentacion
                 }
             }
             // ver como se corroboran 8 digitos del dni
+
+            if (txtDni?.Text.Trim().Length != 8)
+            {
+                MessageBox.Show("No se ingreso un DNI valido", "Verificar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtDni.Focus();
+                return false;
+            }
+
             if (txtNombre.Text.Trim() == "")
             {
                 MessageBox.Show("Debe ingresar un nombre", "Verificar", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -165,6 +173,13 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             {
                 MessageBox.Show("Debe ingresar un Apellido", "Verificar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtApellido.Focus();
+                return false;
+            }
+
+            if (dtpFechaPersona.Value.Year > (DateTime.Now.Year - 15))
+            {
+                MessageBox.Show("La persona no puede ser menor de 15 años", "Verificar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dtpFechaPersona.Focus();
                 return false;
             }
 
