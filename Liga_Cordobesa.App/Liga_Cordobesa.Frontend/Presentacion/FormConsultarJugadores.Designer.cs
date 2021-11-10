@@ -88,6 +88,8 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Elephant", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -110,6 +112,7 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             this.btnEdit});
             this.dataGridView1.Location = new System.Drawing.Point(35, 117);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(685, 190);
@@ -121,6 +124,7 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             this.dataGridViewTextBoxColumn1.HeaderText = "ID";
             this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             this.dataGridViewTextBoxColumn1.Visible = false;
             this.dataGridViewTextBoxColumn1.Width = 125;
             // 
@@ -129,6 +133,7 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             this.dataGridViewTextBoxColumn4.HeaderText = "Nombre";
             this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             this.dataGridViewTextBoxColumn4.Width = 125;
             // 
             // dataGridViewTextBoxColumn2
@@ -136,6 +141,7 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             this.dataGridViewTextBoxColumn2.HeaderText = "Apellido";
             this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             this.dataGridViewTextBoxColumn2.Width = 125;
             // 
             // dataGridViewTextBoxColumn3
@@ -143,6 +149,7 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             this.dataGridViewTextBoxColumn3.HeaderText = "DNI";
             this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             this.dataGridViewTextBoxColumn3.Width = 125;
             // 
             // fec_nac
@@ -150,6 +157,7 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             this.fec_nac.HeaderText = "Fecha Nac.";
             this.fec_nac.MinimumWidth = 6;
             this.fec_nac.Name = "fec_nac";
+            this.fec_nac.ReadOnly = true;
             this.fec_nac.Width = 125;
             // 
             // equipo
@@ -157,6 +165,7 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             this.equipo.HeaderText = "Equipo";
             this.equipo.MinimumWidth = 6;
             this.equipo.Name = "equipo";
+            this.equipo.ReadOnly = true;
             this.equipo.Width = 125;
             // 
             // camiseta
@@ -164,6 +173,7 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             this.camiseta.HeaderText = "Nº Camiseta";
             this.camiseta.MinimumWidth = 6;
             this.camiseta.Name = "camiseta";
+            this.camiseta.ReadOnly = true;
             this.camiseta.Width = 125;
             // 
             // pos
@@ -171,6 +181,7 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             this.pos.HeaderText = "Posicion";
             this.pos.MinimumWidth = 6;
             this.pos.Name = "pos";
+            this.pos.ReadOnly = true;
             this.pos.Width = 125;
             // 
             // idpers
@@ -178,6 +189,7 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             this.idpers.HeaderText = "idpers";
             this.idpers.MinimumWidth = 6;
             this.idpers.Name = "idpers";
+            this.idpers.ReadOnly = true;
             this.idpers.Visible = false;
             this.idpers.Width = 125;
             // 
@@ -186,6 +198,7 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             this.btnEdit.HeaderText = "Editar";
             this.btnEdit.MinimumWidth = 6;
             this.btnEdit.Name = "btnEdit";
+            this.btnEdit.ReadOnly = true;
             this.btnEdit.Text = "Editar";
             this.btnEdit.Width = 125;
             // 

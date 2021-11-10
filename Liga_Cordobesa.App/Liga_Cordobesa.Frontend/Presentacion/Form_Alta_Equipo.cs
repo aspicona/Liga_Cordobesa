@@ -102,7 +102,7 @@ namespace Liga_Cordobesa.Frontend.Presentacion
 
         private void dgvEquipo_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvEquipo.CurrentCell.ColumnIndex == 5)
+            if (dgvEquipo.CurrentCell.ColumnIndex == 4)
             {
                 oEquipo.QuitarJugador(dgvEquipo.CurrentRow.Index);
                 dgvEquipo.Rows.Remove(dgvEquipo.CurrentRow);
