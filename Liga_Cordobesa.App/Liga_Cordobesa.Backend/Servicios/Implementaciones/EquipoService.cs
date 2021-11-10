@@ -45,9 +45,9 @@ namespace Liga_Cordobesa.Backend.Servicios
             return dao.TraerNroEquipo();
         }
 
-        public bool RegistrarBajaEquipo(int presupuesto)
+        public bool RegistrarBajaEquipo(int nro)
         {
-            throw new NotImplementedException();
+            return dao.Delete(nro);
         }
 
         public bool UpdateEquipo(Equipo oEquipo)

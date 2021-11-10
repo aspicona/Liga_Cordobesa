@@ -59,19 +59,18 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             this.label1.BackColor = System.Drawing.Color.Black;
             this.label1.Font = new System.Drawing.Font("Elephant", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(124, 34);
+            this.label1.Location = new System.Drawing.Point(108, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 22);
+            this.label1.Size = new System.Drawing.Size(68, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "Equipo: ";
             // 
             // cmbEquipos
             // 
             this.cmbEquipos.FormattingEnabled = true;
-            this.cmbEquipos.Location = new System.Drawing.Point(218, 31);
-            this.cmbEquipos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cmbEquipos.Location = new System.Drawing.Point(191, 23);
             this.cmbEquipos.Name = "cmbEquipos";
-            this.cmbEquipos.Size = new System.Drawing.Size(289, 28);
+            this.cmbEquipos.Size = new System.Drawing.Size(253, 23);
             this.cmbEquipos.TabIndex = 1;
             // 
             // btnFiltrar
@@ -79,10 +78,9 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             this.btnFiltrar.BackColor = System.Drawing.Color.Black;
             this.btnFiltrar.Font = new System.Drawing.Font("Elephant", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnFiltrar.ForeColor = System.Drawing.Color.White;
-            this.btnFiltrar.Location = new System.Drawing.Point(586, 27);
-            this.btnFiltrar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnFiltrar.Location = new System.Drawing.Point(513, 20);
             this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(105, 47);
+            this.btnFiltrar.Size = new System.Drawing.Size(92, 35);
             this.btnFiltrar.TabIndex = 2;
             this.btnFiltrar.Text = "Filtrar";
             this.btnFiltrar.UseVisualStyleBackColor = false;
@@ -110,12 +108,11 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             this.pos,
             this.idpers,
             this.btnEdit});
-            this.dataGridView1.Location = new System.Drawing.Point(40, 156);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dataGridView1.Location = new System.Drawing.Point(35, 117);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(783, 253);
+            this.dataGridView1.Size = new System.Drawing.Size(685, 190);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -197,10 +194,9 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             this.btnSalir.BackColor = System.Drawing.Color.Black;
             this.btnSalir.Font = new System.Drawing.Font("Elephant", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnSalir.ForeColor = System.Drawing.Color.White;
-            this.btnSalir.Location = new System.Drawing.Point(713, 477);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSalir.Location = new System.Drawing.Point(624, 358);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(96, 38);
+            this.btnSalir.Size = new System.Drawing.Size(84, 28);
             this.btnSalir.TabIndex = 4;
             this.btnSalir.Text = "Cerrar";
             this.btnSalir.UseVisualStyleBackColor = false;
@@ -238,19 +234,18 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             // 
             // FormConsultarJugadores
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Liga_Cordobesa.Frontend.Properties.Resources.cancha;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(863, 540);
+            this.ClientSize = new System.Drawing.Size(755, 405);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnFiltrar);
             this.Controls.Add(this.cmbEquipos);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormConsultarJugadores";
             this.Text = "Consultar Jugadores";
             this.Load += new System.EventHandler(this.FormConsultarJugadores_Load);

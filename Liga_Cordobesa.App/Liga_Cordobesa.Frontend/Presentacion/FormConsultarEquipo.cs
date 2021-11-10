@@ -30,6 +30,7 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             CargarComboPosicion();
             DesabilitarComponentesJugador();
             btnUpdateTeam.Enabled = false;
+            btnEliminar.Enabled = false;
         }
 
         private void DesabilitarComponentesJugador()
@@ -42,6 +43,7 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             btnAgregar.Enabled = false;
             txtDt.Enabled = false;
             txtNombre.Enabled = false;
+            btnEliminar.Enabled = false;
         }
 
         private void HabilitarComponentesJugador()
@@ -54,6 +56,7 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             btnAgregar.Enabled = true;
             txtDt.Enabled = true;
             txtNombre.Enabled = true;
+            btnEliminar.Enabled = true;
         }
 
         private void btnSalir2_Click(object sender, EventArgs e)

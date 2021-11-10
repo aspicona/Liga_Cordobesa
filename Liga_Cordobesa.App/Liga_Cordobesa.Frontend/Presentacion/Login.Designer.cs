@@ -95,7 +95,7 @@ namespace Liga_Cordobesa.Frontend.Presentacion
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Login";
             this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);

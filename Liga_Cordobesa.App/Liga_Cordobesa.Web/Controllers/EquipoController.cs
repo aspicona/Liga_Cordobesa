@@ -66,5 +66,13 @@ namespace Liga_Cordobesa.Web.Controllers
 
             return Ok(service.UpdateEquipo(equipo));
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            if (id == 0)
+                return BadRequest("Id es requerido!");
+            return Ok(service.RegistrarBajaEquipo(id));
+        }
     }
 }

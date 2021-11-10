@@ -63,36 +63,6 @@ namespace Liga_Cordobesa.Frontend.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _8c63e3de761195fd348cacf1b71a77e7__bayern_soccer {
-            get {
-                object obj = ResourceManager.GetObject("8c63e3de761195fd348cacf1b71a77e7--bayern-soccer", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap avatar {
-            get {
-                object obj = ResourceManager.GetObject("avatar", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap avatar2 {
-            get {
-                object obj = ResourceManager.GetObject("avatar2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap cancha {
             get {
                 object obj = ResourceManager.GetObject("cancha", resourceCulture);
@@ -176,16 +146,6 @@ namespace Liga_Cordobesa.Frontend.Properties {
         internal static System.Drawing.Bitmap pasto {
             get {
                 object obj = ResourceManager.GetObject("pasto", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap pasto1 {
-            get {
-                object obj = ResourceManager.GetObject("pasto1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -9,7 +9,7 @@ namespace Liga_Cordobesa.Backend.Servicios
 {
     public interface IEquipoService
     {
-        bool RegistrarBajaEquipo(int presupuesto);
+        bool RegistrarBajaEquipo(int nro);
         List<Equipo> ConsultarEquipo(List<Parametro> criterios);
         bool GrabarEquipo(Equipo oEquipo);
         int ObtenerProximoEquipoID();
