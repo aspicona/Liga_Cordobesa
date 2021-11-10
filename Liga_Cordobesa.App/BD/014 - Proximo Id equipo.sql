@@ -1,0 +1,12 @@
+/****** Object:  StoredProcedure [dbo].[SP_PROXIMO_ID_EQUIPO]    Script Date: 31/10/2021 22:20:54 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[SP_PROXIMO_ID_EQUIPO]
+@next int OUTPUT
+AS
+BEGIN
+	SET @next = (SELECT MAX(id_equipo)+1  FROM EQUIPOS);
+END	
+GO
